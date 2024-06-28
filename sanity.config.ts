@@ -2,7 +2,7 @@ import { defineConfig, isDev } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { ukUALocale } from '@sanity/locale-uk-ua'
-import schemas from '@/schemas'
+import schemas from './src/schemas'
 
 const visionPlugin = isDev ? [visionTool()] : []
 
