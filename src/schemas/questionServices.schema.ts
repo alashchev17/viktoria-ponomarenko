@@ -1,8 +1,8 @@
 import { defineType, defineField } from 'sanity'
 
-const questionSchema = defineType({
-  name: 'question',
-  title: 'Найчастіші запитання (old)',
+const questionServicesSchema = defineType({
+  name: 'questionServices',
+  title: 'Найчастіші запитання (послуги)',
   type: 'document',
   fields: [
     defineField({
@@ -28,4 +28,4 @@ const questionSchema = defineType({
   ],
 })
 
-export default questionSchema
+export default questionServicesSchema

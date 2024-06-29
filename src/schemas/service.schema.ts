@@ -26,10 +26,11 @@ const serviceSchema = defineType({
       ],
     }),
     defineField({
-      name: 'questions',
+      name: 'questionServices',
       title: 'Найчастіші запитання',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'question' }] }],
+      of: [{ type: 'reference', to: [{ type: 'questionServices' }] }],
+      validation: (rule) => rule.required().error('Поле "Найчастіші запитання" обов\'язкове!'),
     }),
     defineField({
       name: 'duration',

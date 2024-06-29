@@ -40,6 +40,26 @@ const informationSchema = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'telegram',
+      title: 'Посилання на Telegram',
+      type: 'url',
+    }),
+    defineField({
+      name: 'youtube',
+      title: 'Посилання на YouTube',
+      type: 'url',
+    }),
+    defineField({
+      name: 'instagram',
+      title: 'Посилання на Instagram',
+      type: 'url',
+    }),
+    defineField({
+      name: 'tiktok',
+      title: 'Посилання на TikTok',
+      type: 'url',
+    }),
   ],
 })
 

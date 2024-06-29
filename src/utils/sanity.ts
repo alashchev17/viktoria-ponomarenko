@@ -16,7 +16,11 @@ export async function getInformation(): Promise<Information> {
     name,
     description,
     "image": image.asset->url,
-    "image_alt": image.alt
+    "image_alt": image.alt,
+    telegram,
+    youtube,
+    instagram,
+    tiktok
   }`,
     {},
     { useCdn: true, cache: 'no-store' }
@@ -43,7 +47,7 @@ export async function getServices(): Promise<Service[]> {
       price,
       "banner_url": image.asset->url,
       "banner_alt": image.alt,
-      "questions": questions[]->{
+      "questions": questionServices[]->{
         _id,
         name,
         answer

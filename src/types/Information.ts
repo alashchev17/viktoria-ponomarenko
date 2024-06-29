@@ -5,4 +5,8 @@ export type Information = {
   description: string
   image: string
   image_alt: string
+  telegram: string | null
+  youtube: string | null
+  instagram: string | null
+  tiktok: string | null
 }
