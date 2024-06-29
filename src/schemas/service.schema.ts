@@ -21,8 +21,7 @@ const serviceSchema = defineType({
       type: 'string',
       validation: (rule) => [
         rule.required().error('Поле "Опис послуги" обов\'язкове!'),
-        rule.min(25).error('Дане поле має бути більше 25 символів!'),
-        rule.max(100).error('Дане поле має бути менше 100 символів!'),
+        rule.min(50).error('Дане поле має бути більше 50 символів!'),
       ],
     }),
     defineField({
