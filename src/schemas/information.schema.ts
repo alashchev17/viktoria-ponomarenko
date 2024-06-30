@@ -30,7 +30,7 @@ const informationSchema = defineType({
       title: 'Головне фото',
       type: 'image',
       options: { hotspot: true },
-      validation: (rule) => rule.required().error('Поле "Головне фото" обов\'язкове!'),
+      validation: (rule) => rule.required().assetRequired().error('Поле "Головне фото" обов\'язкове!'),
       fields: [
         defineField({
           name: 'alt',
