@@ -18,12 +18,9 @@ const questionServicesSchema = defineType({
     defineField({
       name: 'answer',
       title: 'Відповідь',
-      type: 'string',
-      validation: (rule) => [
-        rule.required().error('Поле "Відповідь" обов\'язкове!'),
-        rule.min(20).error('Дане поле має бути більше 20 символів'),
-        rule.max(150).error('Дане поле має бути менше 150 символів!'),
-      ],
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: (rule) => rule.required().error('Поле "Відповідь" обов\'язкове!'),
     }),
   ],
 })

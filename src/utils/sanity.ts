@@ -84,7 +84,5 @@ export async function getReviews(): Promise<Review[]> {
     { useCdn: true, cache: 'no-store' }
   )
 
-  console.log(`[SERVER]: Response from Sanity (reviews): ${JSON.stringify(reviews)}`)
-
   return reviews
 }

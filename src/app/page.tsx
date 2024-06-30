@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getInformation, getReviews, getServices } from '@/utils/sanity'
+import { PortableText } from '@portabletext/react'
 
 export const revalidate = 30
 
@@ -32,7 +33,10 @@ export default async function Home() {
               {service.questions.map((question) => {
                 return (
                   <div key={question._id} className="mb-4">
-                    <div>Question Text: {question.name}</div> <div>Answer: {question.answer}</div>
+                    <div>Question Text: {question.name}</div>{' '}
+                    <div>
+                      Answer: <PortableText value={question.answer} />
+                    </div>
                   </div>
                 )
               })}
