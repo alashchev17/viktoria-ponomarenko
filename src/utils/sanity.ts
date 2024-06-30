@@ -1,14 +1,15 @@
-import type { Information } from '@/types/Information'
-import { Review } from '@/types/Review'
-import type { Service } from '@/types/Service'
 import { createClient, groq } from 'next-sanity'
+
+import type { Information } from '@/types/Information'
+import type { Review } from '@/types/Review'
+import type { Service } from '@/types/Service'
 
 export async function getInformation(): Promise<Information> {
   const client = createClient({
     projectId: 'fgy6qk8e',
     dataset: 'production',
     apiVersion: '2022-03-07',
-    useCdn: false,
+    useCdn: true,
   })
 
   const informationArray: Information[] = await client.fetch(
@@ -36,7 +37,7 @@ export async function getServices(): Promise<Service[]> {
     projectId: 'fgy6qk8e',
     dataset: 'production',
     apiVersion: '2022-03-07',
-    useCdn: false,
+    useCdn: true,
   })
 
   const services: Service[] = await client.fetch(
@@ -66,7 +67,7 @@ export async function getReviews(): Promise<Review[]> {
     projectId: 'fgy6qk8e',
     dataset: 'production',
     apiVersion: '2022-03-07',
-    useCdn: false,
+    useCdn: true,
   })
 
   const reviews: Review[] = await client.fetch(

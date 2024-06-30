@@ -1,4 +1,4 @@
-import { TypedObject } from 'sanity'
+import type { TypedObject } from 'sanity'
 
 export type Question = {
   _id: string
