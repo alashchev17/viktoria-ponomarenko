@@ -4,6 +4,21 @@ const informationSchema = defineType({
   name: 'information',
   title: 'Інформація',
   type: 'document',
+  groups: [
+    {
+      name: 'main',
+      title: 'Основні поля',
+      default: true,
+    },
+    {
+      name: 'links',
+      title: 'Посилання',
+    },
+    {
+      name: 'administrative',
+      title: 'Адміністративні поля',
+    },
+  ],
   fields: [
     defineField({
       name: 'name',
@@ -14,6 +29,7 @@ const informationSchema = defineType({
         rule.min(5).error('Дане поле має бути більше 5 символів!'),
         rule.max(25).error('Дане поле має бути менше 25 символів!'),
       ],
+      group: 'main',
     }),
     defineField({
       name: 'description',
@@ -24,6 +40,7 @@ const informationSchema = defineType({
         rule.min(20).error('Дане поле має бути більше 20 символів'),
         rule.max(150).error('Дане поле має бути менше 150 символів!'),
       ],
+      group: 'main',
     }),
     defineField({
       name: 'image',
@@ -39,26 +56,37 @@ const informationSchema = defineType({
           validation: (rule) => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
         }),
       ],
+      group: 'main',
     }),
     defineField({
       name: 'telegram',
       title: 'Посилання на Telegram',
       type: 'url',
+      group: 'links',
     }),
     defineField({
       name: 'youtube',
       title: 'Посилання на YouTube',
       type: 'url',
+      group: 'links',
     }),
     defineField({
       name: 'instagram',
       title: 'Посилання на Instagram',
       type: 'url',
+      group: 'links',
     }),
     defineField({
       name: 'tiktok',
       title: 'Посилання на TikTok',
       type: 'url',
+      group: 'links',
+    }),
+    defineField({
+      name: 'copyright',
+      title: 'Текст копірайту у футері сайту',
+      type: 'string',
+      group: 'administrative',
     }),
   ],
 })
