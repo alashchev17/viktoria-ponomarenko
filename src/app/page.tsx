@@ -1,11 +1,12 @@
 import Image from 'next/image'
-import { getInformation, getServices } from '@/utils/sanity'
+import { getInformation, getReviews, getServices } from '@/utils/sanity'
 
 export const revalidate = 30
 
 export default async function Home() {
   const information = await getInformation()
   const services = await getServices()
+  const reviews = await getReviews()
 
   if (!information) {
     return <div>No information found!</div>
@@ -68,6 +69,30 @@ export default async function Home() {
       ) : (
         <div>No links specified</div>
       )}
+
+      <b>Reviews:</b>
+      {reviews.length > 0 &&
+        reviews.map((review) => (
+          <div key={review._id}>
+            <div>Person Name: {review.personName}</div>
+            <div>Person Position: {review.personPosition}</div>
+            <div>Duration: {review.duration}</div>
+            <div>
+              Person Photo:{' '}
+              <Image
+                src={review.personAvatar}
+                alt={review.personAvatarAlt}
+                width={50}
+                height={50}
+                className="rounded-full w-[50px] h-[50px] object-cover"
+              />
+            </div>
+            <div className="italic font-bold">{`"...${review.reviewSlogan}..."`}</div>
+            <div>
+              Review Text: <div className="whitespace-pre-line">{review.reviewText}</div>
+            </div>
+          </div>
+        ))}
     </div>
   )
 }

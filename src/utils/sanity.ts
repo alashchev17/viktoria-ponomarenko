@@ -1,4 +1,5 @@
 import type { Information } from '@/types/Information'
+import { Review } from '@/types/Review'
 import type { Service } from '@/types/Service'
 import { createClient, groq } from 'next-sanity'
 
@@ -25,8 +26,6 @@ export async function getInformation(): Promise<Information> {
     {},
     { useCdn: true, cache: 'no-store' }
   )
-
-  console.log(`[SERVER]: Response from Sanity (information): ${JSON.stringify(informationArray)}`)
 
   return informationArray[0]
 }
@@ -57,7 +56,35 @@ export async function getServices(): Promise<Service[]> {
     { useCdn: true, cache: 'no-store' }
   )
 
-  console.log(`[SERVER]: Response from Sanity (services): ${JSON.stringify(services)}`)
-
   return services
+}
+
+export async function getReviews(): Promise<Review[]> {
+  const client = createClient({
+    projectId: 'fgy6qk8e',
+    dataset: 'production',
+    apiVersion: '2022-03-07',
+  })
+
+  const reviews: Review[] = await client.fetch(
+    groq`*[_type == "review"]{
+      _id,
+      _createdAt,
+      personName,
+      personPosition,
+      "personAvatar": personAvatar.asset->url,
+      "personAvatarAlt": personAvatar.alt,
+      reviewType,
+      "reviewAsset": reviewAsset.asset->url,
+      duration,
+      reviewSlogan,
+      reviewText
+    }`,
+    {},
+    { useCdn: true, cache: 'no-store' }
+  )
+
+  console.log(`[SERVER]: Response from Sanity (reviews): ${JSON.stringify(reviews)}`)
+
+  return reviews
 }
