@@ -17,13 +17,17 @@ export default async function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <b>Information</b>
       <div>Name: {information.name}</div>
-      <div>Description: {information.description}</div>
+      <div>
+        Description: <div className="whitespace-pre-line">{information.description}</div>
+      </div>
       <Image src={information.image} alt={information.image_alt} width={200} height={200} />
       <b>Services:</b>
       {services.map((service) => (
         <div key={service._id}>
           <div>Service Name: {service.name}</div>
-          <div>Service Description: {service.description}</div>
+          <div>
+            Service Description: <div className="whitespace-pre-line">{service.description}</div>
+          </div>
           <Image src={service.banner_url} alt={service.banner_alt} width={200} height={200} />
           <div>Price: {service.price}</div>
           <div>Duration: {service.duration}</div>

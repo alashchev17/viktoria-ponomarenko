@@ -12,7 +12,7 @@ const questionServicesSchema = defineType({
       validation: (rule) => [
         rule.required().error('Поле "Питання" обов\'язкове!'),
         rule.min(5).error('Дане поле має бути більше 5 символів!'),
-        rule.max(25).error('Дане поле має бути менше 25 символів!'),
+        rule.max(75).error('Дане поле має бути менше 75 символів!'),
       ],
     }),
     defineField({

@@ -8,6 +8,7 @@ export async function getInformation(): Promise<Information> {
     projectId: 'fgy6qk8e',
     dataset: 'production',
     apiVersion: '2022-03-07',
+    useCdn: false,
   })
 
   const informationArray: Information[] = await client.fetch(
@@ -24,7 +25,7 @@ export async function getInformation(): Promise<Information> {
     tiktok
   }`,
     {},
-    { useCdn: true, cache: 'no-store' }
+    { cache: 'no-store' }
   )
 
   return informationArray[0]
@@ -35,6 +36,7 @@ export async function getServices(): Promise<Service[]> {
     projectId: 'fgy6qk8e',
     dataset: 'production',
     apiVersion: '2022-03-07',
+    useCdn: false,
   })
 
   const services: Service[] = await client.fetch(
@@ -53,7 +55,7 @@ export async function getServices(): Promise<Service[]> {
       }
     }`,
     {},
-    { useCdn: true, cache: 'no-store' }
+    { cache: 'no-store' }
   )
 
   return services
@@ -64,6 +66,7 @@ export async function getReviews(): Promise<Review[]> {
     projectId: 'fgy6qk8e',
     dataset: 'production',
     apiVersion: '2022-03-07',
+    useCdn: false,
   })
 
   const reviews: Review[] = await client.fetch(
@@ -81,7 +84,7 @@ export async function getReviews(): Promise<Review[]> {
       reviewText
     }`,
     {},
-    { useCdn: true, cache: 'no-store' }
+    { cache: 'no-store' }
   )
 
   return reviews

@@ -34,11 +34,11 @@ const informationSchema = defineType({
     defineField({
       name: 'description',
       title: 'Опис',
-      type: 'string',
+      type: 'text',
       validation: (rule) => [
         rule.required().error('Поле "Опис" обов\'язкове!'),
         rule.min(20).error('Дане поле має бути більше 20 символів'),
-        rule.max(150).error('Дане поле має бути менше 150 символів!'),
+        rule.max(400).error('Дане поле має бути менше 400 символів!'),
       ],
       group: 'main',
     }),
