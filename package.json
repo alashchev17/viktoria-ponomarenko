@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 9000",
-    "lint": "next lint",
-    "deploy": "npm run build && npm run start"
+    "lint": "next lint"
   },
   "dependencies": {
     "@sanity/locale-uk-ua": "^1.1.5",
