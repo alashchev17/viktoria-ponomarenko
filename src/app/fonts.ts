@@ -9,7 +9,6 @@ export const nyghtFont = localFont({
     },
   ],
   display: 'swap',
-  style: 'italic',
   variable: '--font-nyght',
 });
 
