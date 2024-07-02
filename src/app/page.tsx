@@ -8,7 +8,7 @@ export const revalidate = 30;
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 font-sans">
+    <div className="min-h-screen font-sans px-2">
       <Header />
       <InformationSection />
       <ServiceSection />

@@ -11,7 +11,7 @@ export const ServiceSection = async () => {
       <b>Services:</b>
       {services.map(service => (
         <div key={service._id}>
-          <div className="font-serif">Service Name: {service.name}</div>
+          <div className="font-serif italic">Service Name: {service.name}</div>
           <div>
             Service Description:{' '}
             <div className="whitespace-pre-line">{service.description}</div>
