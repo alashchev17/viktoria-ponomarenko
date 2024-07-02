@@ -1,19 +1,28 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { getInformation } from '@/utils/sanity'
+import { getInformation } from '@/utils/sanity';
 
 export const InformationSection = async () => {
-  const information = await getInformation()
+  const information = await getInformation();
 
   return (
     <div>
-      <b>Information</b>
+      <div>Information</div>
       <div>Name: {information.name}</div>
       <div>
-        Description: <div className="whitespace-pre-line">{information.description}</div>
+        Description:{' '}
+        <div className="whitespace-pre-line">{information.description}</div>
       </div>
-      <Image src={information.image} alt={information.image_alt} width={200} height={200} />
-      {information.telegram || information.instagram || information.youtube || information.tiktok ? (
+      <Image
+        src={information.image}
+        alt={information.image_alt}
+        width={200}
+        height={200}
+      />
+      {information.telegram ||
+      information.instagram ||
+      information.youtube ||
+      information.tiktok ? (
         <div className="flex flex-col gap-2 justify-center items-center">
           <b>Links:</b>
           {information.telegram && (
@@ -41,5 +50,5 @@ export const InformationSection = async () => {
         <div>No links specified</div>
       )}
     </div>
-  )
-}
+  );
+};

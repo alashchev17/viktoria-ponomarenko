@@ -1,31 +1,24 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from 'next';
+import './globals.css';
 
-import localFont from '@next/font/local'
+import { nyghtFont, manrope } from './fonts';
 
 export const metadata: Metadata = {
   title: 'Вікторія Пономаренко',
-  description: 'Особиста сторінка спеціаліста з астрологічних діагностик Вікторії Пономаренко',
-}
-
-const nyghtFont = localFont({
-  src: [
-    {
-      path: '../../public/fonts/NyghtSerif-Light.woff',
-      weight: '300'
-    },
-  ],
-  variable: '--font-nyght'
-})
+  description:
+    'Особиста сторінка спеціаліста з астрологічних діагностик Вікторії Пономаренко',
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${nyghtFont.variable} font-serif`}>{children}</body>
+    <html lang="ua">
+      <body className={`${nyghtFont.variable} ${manrope.variable}`}>
+        {children}
+      </body>
     </html>
-  )
+  );
 }
