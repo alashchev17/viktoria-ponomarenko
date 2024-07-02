@@ -7,9 +7,9 @@ import schemas from './src/schemas'
 
 const visionPlugin = isDev ? [visionTool()] : []
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET as string
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION as string
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID as string
+const dataset = process.env.SANITY_STUDIO_DATASET as string
+const apiVersion = process.env.SANITY_STUDIO_API_VERSION as string
 
 const config = defineConfig({
   name: 'default',
