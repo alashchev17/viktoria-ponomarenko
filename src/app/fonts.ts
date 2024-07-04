@@ -4,11 +4,10 @@ import { Manrope } from 'next/font/google';
 export const nyghtFont = localFont({
   src: [
     {
-      path: '../../public/fonts/NyghtSerif-Light.woff',
+      path: '../../public/fonts/NyghtSerif-LightItalic.ttf',
       weight: '300',
     },
   ],
-  display: 'swap',
   variable: '--font-nyght',
 });
 
