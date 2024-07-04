@@ -1,1 +1,0 @@
-export { InformationSection } from './InformationSection'
