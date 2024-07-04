@@ -20,7 +20,7 @@ export const InformationSection = async () => {
           height={600}
         />
       </Suspense>
-      <Title level={3} className="font-serif italic-cyrillic">
+      <Title level={3} className="font-serif-italic italic-cyrillic">
         {information.name}
       </Title>
       <div className="whitespace-pre-line">{information.description}</div>

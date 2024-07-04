@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ['var(--font-nyght)'],
+        'serif-italic': ['var(--font-nyght-italic)'],
         sans: ['var(--font-manrope)'],
       },
     },

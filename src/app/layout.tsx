@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-import { nyghtFont, manrope } from './fonts';
+import { nyghtFont, nyghtFontItalic, manrope } from './fonts';
 
 export const metadata: Metadata = {
   title: 'Вікторія Пономаренко',
@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ua">
-      <body className={`${nyghtFont.variable} ${manrope.variable}`}>
+      <body
+        className={`${nyghtFont.variable} ${nyghtFontItalic.variable} ${manrope.variable}`}
+      >
         {children}
       </body>
     </html>
