@@ -3,11 +3,16 @@ export type Information = {
   _createdAt: string;
   name: string;
   description: string;
-  image: string;
-  image_ref: string;
-  image_alt: string;
+  image: InformationImage;
   telegram: string | null;
   youtube: string | null;
   instagram: string | null;
   tiktok: string | null;
+};
+
+type InformationImage = {
+  url: string;
+  alt: string;
+  width: number;
+  height: number;
 };

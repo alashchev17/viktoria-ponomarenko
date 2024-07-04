@@ -16,15 +16,18 @@ export async function getInformation(): Promise<Information> {
     useCdn: true,
   });
 
-  const informationArray: Information[] = await client.fetch(
+  const [information]: Information[] = await client.fetch(
     groq`*[_type == "information"]{
     _id,
     _createdAt,
     name,
     description,
-    "image": image.asset->url,
-    "image_alt": image.alt,
-    "image_ref": image.asset._ref,
+    image {
+      "width": asset->metadata.dimensions.width,
+      "height": asset->metadata.dimensions.height,
+      alt,
+      "url": asset->url
+    },
     telegram,
     youtube,
     instagram,
@@ -34,7 +37,7 @@ export async function getInformation(): Promise<Information> {
     { cache: 'no-store' },
   );
 
-  return informationArray[0];
+  return information;
 }
 
 export async function getServices(): Promise<Service[]> {
