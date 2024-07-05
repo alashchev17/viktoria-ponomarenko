@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 type ImageWithLoaderProps = {
@@ -22,16 +22,14 @@ export const ImageWithLoader = ({
 }: ImageWithLoaderProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  console.log(
-    `[CLIENT]: imageWidth: ${imageWidth} pixels & imageHeight: ${imageHeight} pixels`,
-  );
-
   return (
     <div className={`relative w-full ${padding}`}>
       <Image
         src={src}
         alt={alt}
-        className={`w-full ${isImageLoaded ? '' : 'opacity-0 absolute w-0 h-0'}`}
+        className={`w-full ${
+          isImageLoaded ? '' : 'opacity-0 absolute w-0 h-0'
+        }`}
         width={imageWidth}
         height={imageHeight}
         loading="lazy"

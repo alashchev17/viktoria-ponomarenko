@@ -4,10 +4,7 @@ export type Information = {
   name: string;
   description: string;
   image: InformationImage;
-  telegram: string | null;
-  youtube: string | null;
-  instagram: string | null;
-  tiktok: string | null;
+  links: InformationLinks;
 };
 
 type InformationImage = {
@@ -15,4 +12,11 @@ type InformationImage = {
   alt: string;
   width: number;
   height: number;
+};
+
+type InformationLinks = {
+  telegram_url: string | null;
+  youtube_url: string | null;
+  instagram_url: string | null;
+  tiktok_url: string | null;
 };

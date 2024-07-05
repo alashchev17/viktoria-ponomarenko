@@ -21,27 +21,12 @@ export const InformationSection = async () => {
           <Skeleton
             containerClassName="w-full inline-block"
             className="inline-block w-full"
-            style={{ aspectRatio: 359 / 570 }}
+            style={{
+              aspectRatio: information.image.width / information.image.height,
+            }}
           />
         }
-        // loading="lazy"
-        // width={300}
-        // height={600}
       />
-      {/* <Image
-        src={information.image}
-        alt={information.image_alt}
-        loading="lazy"
-        width={300}
-        height={600}
-      /> */}
-
-      {/* <div className="w-full">
-        <Skeleton
-          containerClassName="h-[30px] w-full inline-block"
-          className="inline-block w-full"
-        />
-      </div> */}
       <Title level={3} className="font-serif-italic italic-cyrillic">
         {information.name}
       </Title>

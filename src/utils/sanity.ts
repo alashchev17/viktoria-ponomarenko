@@ -18,21 +18,23 @@ export async function getInformation(): Promise<Information> {
 
   const [information]: Information[] = await client.fetch(
     groq`*[_type == "information"]{
-    _id,
-    _createdAt,
-    name,
-    description,
-    image {
-      "width": asset->metadata.dimensions.width,
-      "height": asset->metadata.dimensions.height,
-      alt,
-      "url": asset->url
-    },
-    telegram,
-    youtube,
-    instagram,
-    tiktok
-  }`,
+      _id,
+      _createdAt,
+      name,
+      description,
+      image {
+        "width": asset->metadata.dimensions.width,
+        "height": asset->metadata.dimensions.height,
+        alt,
+        "url": asset->url
+      },
+      "links": {
+        "telegram_url": telegram,
+        "youtube_url": youtube,
+        "instagram_url": instagram,
+        "tiktok_url": tiktok
+      },
+    }`,
     {},
     { cache: 'no-store' },
   );
