@@ -23,7 +23,7 @@ export const nyghtFontItalic = localFont({
 
 export const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-manrope',
 });

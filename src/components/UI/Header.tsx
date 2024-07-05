@@ -1,6 +1,7 @@
 import { getInformation } from '@/utils/sanity';
 
 import { Button } from '@/components/UI/Button';
+import { Title } from '@/components/UI/Title';
 import { TelegramIcon } from '@/components/Icons/TelegramIcon';
 import { InstagramIcon } from '@/components/Icons/InstagramIcon';
 
@@ -12,12 +13,7 @@ export const Header = async () => {
         <div className="flex gap-2 items-center">
           {links.instagram_url && (
             <Button variant="icon" href={links.instagram_url}>
-              <InstagramIcon
-                fill="#0C174F"
-                width="15"
-                height="15"
-                className="mr-[1px]"
-              />
+              <InstagramIcon fill="#0C174F" width="15" height="15" />
             </Button>
           )}
           {links.telegram_url && (
@@ -32,6 +28,13 @@ export const Header = async () => {
           )}
         </div>
       )}
+      <Title
+        level={1}
+        className="text-white font-bold absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+      >
+        V
+      </Title>
+      <Button variant={'inline'}>Записатися</Button>
     </header>
   );
 };

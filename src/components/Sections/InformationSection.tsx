@@ -14,13 +14,13 @@ export const InformationSection = async () => {
       <ImageWithLoader
         src={information.image.url}
         alt={information.image.alt}
-        padding="px-12"
+        padding="px-[23%]"
         imageWidth={information.image.width}
         imageHeight={information.image.height}
         loader={
           <Skeleton
-            containerClassName="w-full inline-block"
-            className="inline-block w-full"
+            containerClassName="w-full inline-block leading-none"
+            className="inline-block w-full leading-none"
             style={{
               aspectRatio: information.image.width / information.image.height,
             }}
