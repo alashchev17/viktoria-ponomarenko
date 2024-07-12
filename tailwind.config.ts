@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -18,8 +18,14 @@ const config: Config = {
         'serif-italic': ['var(--font-nyght-italic)'],
         sans: ['var(--font-manrope)'],
       },
+      colors: {
+        blue: '#97B4DE',
+        'bright-blue': '#445DDB',
+        'dark-blue': '#0C174F',
+        bezh: '#F6EDDE',
+      },
     },
   },
   plugins: [],
-};
-export default config;
+}
+export default config
