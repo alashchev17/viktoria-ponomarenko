@@ -7,34 +7,19 @@ type ReviewCardProps = {
 }
 
 export const ReviewCard = ({ review }: ReviewCardProps) => {
-  const {
-    reviewSlogan,
-    reviewText,
-    personName,
-    personAvatar,
-    personAvatarAlt,
-    reviewType,
-  } = review
+  const { reviewSlogan, reviewText, personName, personAvatar, personAvatarAlt, reviewType } = review
 
   if (reviewType === 'text') {
     return (
       <div className="testimonial">
         <div className="testimonial-header">
-          <Image
-            src={personAvatar}
-            alt={personAvatarAlt}
-            className="testimonial-avatar"
-            width={50}
-            height={50}
-          />
+          <Image src={personAvatar} alt={personAvatarAlt} className="testimonial-avatar" width={50} height={50} />
           <div className="testimonial-info">
             <span className="testimonial-name">{personName}</span>
             <span className="testimonial-type">Текстовий відгук</span>
           </div>
         </div>
-        <blockquote className="testimonial-quote">
-          {`"...${reviewSlogan}..."`}
-        </blockquote>
+        <blockquote className="testimonial-quote">{`"...${reviewSlogan}..."`}</blockquote>
         <p className="testimonial-text">{reviewText}</p>
         <a href="#" className="read-more">
           Прочитати повністю
@@ -47,21 +32,13 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
     return (
       <div className="testimonial">
         <div className="testimonial-header">
-          <Image
-            src={personAvatar}
-            alt={personAvatarAlt}
-            className="testimonial-avatar"
-            width={50}
-            height={50}
-          />
+          <Image src={personAvatar} alt={personAvatarAlt} className="testimonial-avatar" width={50} height={50} />
           <div className="testimonial-info">
             <span className="testimonial-name">{personName}</span>
             <span className="testimonial-type">Аудіо-відгук</span>
           </div>
         </div>
-        <blockquote className="testimonial-quote">
-          {`"...${reviewSlogan}..."`}
-        </blockquote>
+        <blockquote className="testimonial-quote">{`"...${reviewSlogan}..."`}</blockquote>
         <p className="testimonial-text">{reviewText}</p>
         <a href="#" className="read-more">
           Прочитати повністю
@@ -74,21 +51,13 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
     return (
       <div className="testimonial">
         <div className="testimonial-header">
-          <Image
-            src={personAvatar}
-            alt={personAvatarAlt}
-            className="testimonial-avatar"
-            width={50}
-            height={50}
-          />
+          <Image src={personAvatar} alt={personAvatarAlt} className="testimonial-avatar" width={50} height={50} />
           <div className="testimonial-info">
             <span className="testimonial-name">{personName}</span>
             <span className="testimonial-type">Відео-відгук</span>
           </div>
         </div>
-        <blockquote className="testimonial-quote">
-          {`"...${reviewSlogan}..."`}
-        </blockquote>
+        <blockquote className="testimonial-quote">{`"...${reviewSlogan}..."`}</blockquote>
         <p className="testimonial-text">{reviewText}</p>
         <a href="#" className="read-more">
           Прочитати повністю

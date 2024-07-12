@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
+import Image from 'next/image'
+import { PortableText } from '@portabletext/react'
 
-import { getServices } from '@/utils/sanity';
+import { getServices } from '@/utils/sanity'
 
 export const ServiceSection = async () => {
-  const services = await getServices();
+  const services = await getServices()
 
   return (
     <div>
@@ -13,15 +13,9 @@ export const ServiceSection = async () => {
         <div key={service._id}>
           <div className="font-serif italic">Service Name: {service.name}</div>
           <div>
-            Service Description:{' '}
-            <div className="whitespace-pre-line">{service.description}</div>
+            Service Description: <div className="whitespace-pre-line">{service.description}</div>
           </div>
-          <Image
-            src={service.banner_url}
-            alt={service.banner_alt}
-            width={200}
-            height={200}
-          />
+          <Image src={service.banner_url} alt={service.banner_alt} width={200} height={200} />
           <div>Price: {service.price}</div>
           <div>Duration: {service.duration}</div>
           <div>Questions:</div>
@@ -35,7 +29,7 @@ export const ServiceSection = async () => {
                       Answer: <PortableText value={question.answer} />
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
           ) : (
@@ -44,5 +38,5 @@ export const ServiceSection = async () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}

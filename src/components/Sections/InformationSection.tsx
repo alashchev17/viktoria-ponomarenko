@@ -1,13 +1,13 @@
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-import { getInformation } from '@/utils/sanity';
+import { getInformation } from '@/utils/sanity'
 
-import { Title } from '@/components/UI/Title';
-import { ImageWithLoader } from '@/components/ImageWithLoader';
+import { Title } from '@/components/UI/Title'
+import { ImageWithLoader } from '@/components/ImageWithLoader'
 
 export const InformationSection = async () => {
-  const information = await getInformation();
+  const information = await getInformation()
 
   return (
     <div className="flex flex-col gap-4 items-center mt-[calc(60px+1rem)]">
@@ -32,5 +32,5 @@ export const InformationSection = async () => {
       </Title>
       <div className="whitespace-pre-line">{information.description}</div>
     </div>
-  );
-};
+  )
+}

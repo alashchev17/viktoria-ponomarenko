@@ -21,7 +21,7 @@ const reviewSchema = defineType({
       title: "Ім'я",
       description: "Ім'я людини, що залишає відгук",
       type: 'string',
-      validation: (rule) => rule.required().error('Поле "Ім\'я" обов\'язкове!'),
+      validation: rule => rule.required().error('Поле "Ім\'я" обов\'язкове!'),
       group: 'personGroup',
     }),
     defineField({
@@ -29,7 +29,7 @@ const reviewSchema = defineType({
       title: 'Посада',
       description: "Приклад: 'Frontend Developer в Google'",
       type: 'string',
-      validation: (rule) => rule.required().error('Поле "Посада" обов\'язкове!'),
+      validation: rule => rule.required().error('Поле "Посада" обов\'язкове!'),
       group: 'personGroup',
     }),
     defineField({
@@ -37,14 +37,14 @@ const reviewSchema = defineType({
       title: 'Фотографія людини',
       description: 'Фотографія людини, що залишає відгук',
       type: 'image',
-      validation: (rule) => rule.required().assetRequired().error('Поле "Посада" обов\'язкове!'),
+      validation: rule => rule.required().assetRequired().error('Поле "Посада" обов\'язкове!'),
       group: 'personGroup',
       fields: [
         defineField({
           name: 'alt',
           title: 'Альтернативний текст',
           type: 'string',
-          validation: (rule) => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
+          validation: rule => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
         }),
       ],
     }),
@@ -60,14 +60,14 @@ const reviewSchema = defineType({
         ],
         layout: 'radio',
       },
-      validation: (rule) => rule.required().error('Поле "Тип відгуку" обов\'язкове!'),
+      validation: rule => rule.required().error('Поле "Тип відгуку" обов\'язкове!'),
       group: 'reviewGroup',
     }),
     defineField({
       name: 'duration',
       title: 'Тривалість відгуку',
       type: 'string',
-      validation: (rule) => [
+      validation: rule => [
         rule.required().error('Поле "Тривалість" обов\'язкове!'),
         rule.max(35).error('Дане поле має бути менше 35 символів!'),
       ],
@@ -80,13 +80,14 @@ const reviewSchema = defineType({
       options: {
         accept: 'video/mp4, audio/mp3',
       },
-      validation: (rule) => rule.required().assetRequired().error('Поле "Медіа-файл відгуку" обов\'язкове!'),
+      validation: rule => rule.required().assetRequired().error('Поле "Медіа-файл відгуку" обов\'язкове!'),
       group: 'reviewGroup',
     }),
     defineField({
       name: 'reviewSlogan',
       title: 'Слоган відгуку',
-      description: "Необов'язкове поле. Головна частина відгуку, що зачепить користувача, що досліджує веб-сайт і переглядає відгуки",
+      description:
+        "Необов'язкове поле. Головна частина відгуку, що зачепить користувача, що досліджує веб-сайт і переглядає відгуки",
       type: 'string',
       group: 'reviewGroup',
     }),

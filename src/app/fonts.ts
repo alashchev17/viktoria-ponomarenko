@@ -1,5 +1,5 @@
-import localFont from 'next/font/local';
-import { Manrope } from 'next/font/google';
+import localFont from 'next/font/local'
+import { Manrope } from 'next/font/google'
 
 export const nyghtFont = localFont({
   src: [
@@ -9,7 +9,7 @@ export const nyghtFont = localFont({
     },
   ],
   variable: '--font-nyght',
-});
+})
 
 export const nyghtFontItalic = localFont({
   src: [
@@ -19,11 +19,11 @@ export const nyghtFontItalic = localFont({
     },
   ],
   variable: '--font-nyght-italic',
-});
+})
 
 export const manrope = Manrope({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-manrope',
-});
+})

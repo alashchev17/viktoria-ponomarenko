@@ -24,7 +24,7 @@ const informationSchema = defineType({
       name: 'name',
       title: "Ім'я",
       type: 'string',
-      validation: (rule) => [
+      validation: rule => [
         rule.required().error('Поле "Ім\'я" обов\'язкове!'),
         rule.min(5).error('Дане поле має бути більше 5 символів!'),
         rule.max(25).error('Дане поле має бути менше 25 символів!'),
@@ -35,7 +35,7 @@ const informationSchema = defineType({
       name: 'description',
       title: 'Опис',
       type: 'text',
-      validation: (rule) => [
+      validation: rule => [
         rule.required().error('Поле "Опис" обов\'язкове!'),
         rule.min(20).error('Дане поле має бути більше 20 символів'),
         rule.max(400).error('Дане поле має бути менше 400 символів!'),
@@ -47,13 +47,13 @@ const informationSchema = defineType({
       title: 'Головне фото',
       type: 'image',
       options: { hotspot: true },
-      validation: (rule) => rule.required().assetRequired().error('Поле "Головне фото" обов\'язкове!'),
+      validation: rule => rule.required().assetRequired().error('Поле "Головне фото" обов\'язкове!'),
       fields: [
         defineField({
           name: 'alt',
           title: 'Альтернативний текст на випадок помилки завантаження фото',
           type: 'string',
-          validation: (rule) => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
+          validation: rule => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
         }),
       ],
       group: 'main',

@@ -31,10 +31,7 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
   return (
     <div>
       <div className="flex justify-between">
-        <Title
-          level={4}
-          className="font-sans font-bold text-dark-blue uppercase"
-        >
+        <Title level={4} className="font-sans font-bold text-dark-blue uppercase">
           Відгуки
         </Title>
         <div className="flex gap-2 items-center">

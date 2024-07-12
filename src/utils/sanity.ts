@@ -1,12 +1,12 @@
-import { createClient, groq } from 'next-sanity';
+import { createClient, groq } from 'next-sanity'
 
-import type { Information } from '@/types/Information';
-import type { Review } from '@/types/Review';
-import type { Service } from '@/types/Service';
+import type { Information } from '@/types/Information'
+import type { Review } from '@/types/Review'
+import type { Service } from '@/types/Service'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET as string;
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION as string;
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET as string
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION as string
 
 export async function getInformation(): Promise<Information> {
   const client = createClient({
@@ -14,7 +14,7 @@ export async function getInformation(): Promise<Information> {
     dataset,
     apiVersion,
     useCdn: true,
-  });
+  })
 
   const [information]: Information[] = await client.fetch(
     groq`*[_type == "information"]{
@@ -37,9 +37,9 @@ export async function getInformation(): Promise<Information> {
     }`,
     {},
     { cache: 'no-store' },
-  );
+  )
 
-  return information;
+  return information
 }
 
 export async function getServices(): Promise<Service[]> {
@@ -48,7 +48,7 @@ export async function getServices(): Promise<Service[]> {
     dataset,
     apiVersion,
     useCdn: true,
-  });
+  })
 
   const services: Service[] = await client.fetch(
     groq`*[_type == "service"]{
@@ -67,9 +67,9 @@ export async function getServices(): Promise<Service[]> {
     }`,
     {},
     { cache: 'no-store' },
-  );
+  )
 
-  return services;
+  return services
 }
 
 export async function getReviews(): Promise<Review[]> {
@@ -78,7 +78,7 @@ export async function getReviews(): Promise<Review[]> {
     dataset,
     apiVersion,
     useCdn: true,
-  });
+  })
 
   const reviews: Review[] = await client.fetch(
     groq`*[_type == "review"]{
@@ -96,22 +96,21 @@ export async function getReviews(): Promise<Review[]> {
     }`,
     {},
     { cache: 'no-store' },
-  );
+  )
 
-  return reviews;
+  return reviews
 }
 
 export const decodeAssetByReference = (reference: string) => {
-  const ImageReferencePattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/;
+  const ImageReferencePattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/
 
-  const [assetType, assetId, dimensions, format] = ImageReferencePattern.exec(
-    reference,
-  ) as Array<string>;
-  const [width, height] = dimensions.split('x').map(v => parseInt(v, 10));
+  // eslint-disable-next-line no-unused-vars
+  const [_, assetId, dimensions, format] = ImageReferencePattern.exec(reference) as Array<string>
+  const [width, height] = dimensions.split('x').map(v => parseInt(v, 10))
 
   return {
     assetId,
     dimensions: { width, height },
     format,
-  };
-};
+  }
+}
