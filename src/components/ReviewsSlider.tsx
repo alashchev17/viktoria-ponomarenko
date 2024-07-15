@@ -12,6 +12,7 @@ import { Title } from '@/components/UI/Title'
 
 import type { Settings as SliderSettings } from 'react-slick'
 import type { Review } from '@/types/Review'
+import { Arrow } from './Icons/Arrow'
 
 type ReviewsSliderProps = {
   reviews: Review[]
@@ -26,20 +27,22 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
+    draggable: true,
+    centerMode: true,
   }
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center mb-8">
         <Title level={4} className="font-sans font-bold text-dark-blue uppercase">
           Відгуки
         </Title>
         <div className="flex gap-2 items-center">
           <Button variant="icon" action={() => slider?.current?.slickPrev()}>
-            Prev
+            <Arrow fill="#F6EDDE" width={22} height={22} className="rotate-180" />
           </Button>
           <Button variant="icon" action={() => slider?.current?.slickNext()}>
-            Next
+            <Arrow fill="#F6EDDE" width={22} height={22} />
           </Button>
         </div>
       </div>
