@@ -29,7 +29,10 @@ const reviewSchema = defineType({
       title: 'Посада',
       description: "Приклад: 'Frontend Developer в Google'",
       type: 'string',
-      validation: rule => rule.required().error('Поле "Посада" обов\'язкове!'),
+      validation: rule => [
+        rule.required().error('Поле "Посада" обов\'язкове!'),
+        rule.max(25).error('Дане поле має бути менше 25 символів!'),
+      ],
       group: 'personGroup',
     }),
     defineField({
@@ -78,7 +81,7 @@ const reviewSchema = defineType({
       title: 'Медіа-файл відгуку',
       type: 'file',
       options: {
-        accept: 'video/mp4, audio/mp3',
+        accept: 'video/mp4, audio/mp3, audio/ogg',
       },
       validation: rule => rule.required().assetRequired().error('Поле "Медіа-файл відгуку" обов\'язкове!'),
       group: 'reviewGroup',
@@ -89,6 +92,7 @@ const reviewSchema = defineType({
       description:
         "Необов'язкове поле. Головна частина відгуку, що зачепить користувача, що досліджує веб-сайт і переглядає відгуки",
       type: 'string',
+      validation: rule => rule.max(55).error('Дане поле має бути менше 55 символів!'),
       group: 'reviewGroup',
     }),
     defineField({

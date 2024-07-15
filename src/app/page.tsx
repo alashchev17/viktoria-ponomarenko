@@ -8,7 +8,7 @@ export const revalidate = 30
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans px-2">
+    <div className="min-h-screen font-sans">
       <div className="pt-[calc(60px+1rem)]">
         <Header />
         <InformationSection />

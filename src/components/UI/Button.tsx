@@ -5,8 +5,8 @@ import React from 'react'
 type ButtonProps = {
   variant: 'primary' | 'secondary' | 'inline' | 'icon'
   id?: string
-  action?: () => void
   href?: string
+  action?: () => void
   children: React.ReactNode
 }
 

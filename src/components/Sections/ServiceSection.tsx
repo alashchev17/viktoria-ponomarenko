@@ -7,7 +7,7 @@ export const ServiceSection = async () => {
   const services = await getServices()
 
   return (
-    <div>
+    <div className="px-2">
       <b>Services:</b>
       {services.map(service => (
         <div key={service._id}>

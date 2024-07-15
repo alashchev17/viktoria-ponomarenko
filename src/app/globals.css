@@ -5,3 +5,14 @@
 .italic-cyrillic {
   font-feature-settings: 'ss01' on;
 }
+
+.slick-slider {
+  margin-inline: -40px; /* space between slides * (-1) */
+}
+
+.slick-slide {
+  > div {
+    /* automatically generated 'div' by 'react-slick'*/
+    margin-inline: 10px; /*  space between slides / 2*/
+  }
+}

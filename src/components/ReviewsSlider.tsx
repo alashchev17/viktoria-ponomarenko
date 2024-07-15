@@ -29,11 +29,13 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
     arrows: false,
     draggable: true,
     centerMode: true,
+    variableWidth: true,
+    // adaptiveHeight: true,
   }
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center mb-8 px-2">
         <Title level={4} className="font-sans font-bold text-dark-blue uppercase">
           Відгуки
         </Title>

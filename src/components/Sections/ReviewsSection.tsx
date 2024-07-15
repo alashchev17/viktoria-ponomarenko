@@ -5,7 +5,7 @@ export const ReviewsSection = async () => {
   const reviews = await getReviews()
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <ReviewsSlider reviews={reviews} />
     </div>
   )

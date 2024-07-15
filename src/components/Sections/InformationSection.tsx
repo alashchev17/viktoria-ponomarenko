@@ -10,7 +10,7 @@ export const InformationSection = async () => {
   const information = await getInformation()
 
   return (
-    <div className="flex flex-col gap-4 items-center mt-[calc(60px+1rem)]">
+    <div className="flex flex-col gap-4 items-center mt-[calc(60px+1rem)] px-2">
       <ImageWithLoader
         src={information.image.url}
         alt={information.image.alt}
