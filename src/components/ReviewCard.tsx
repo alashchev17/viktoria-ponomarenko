@@ -18,7 +18,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
     >
       <div className="flex flex-col items-start gap-4">
         {/* БЛОК НОМЕР 1 */}
-        <span className="px-2 py-1 font-semibold text-bezh bg-blue rounded-sm">{reviewTypeLabel}</span>
+        <span className="px-2 py-1 font-semibold text-sm text-bezh bg-blue rounded-sm">{reviewTypeLabel}</span>
         <div className="flex gap-4 items-center">
           <Image
             src={personAvatar}
