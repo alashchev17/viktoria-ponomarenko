@@ -11,8 +11,8 @@ export default function Home() {
     <div className="min-h-screen font-sans">
       <div className="pt-[calc(60px+1rem)]">
         <Header />
-        <InformationSection />
-        <ServiceSection />
+        {/* <InformationSection />
+        <ServiceSection /> */}
         <ReviewsSection />
       </div>
     </div>

@@ -41,7 +41,7 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
     onInit: () => {
       const timeoutId = setTimeout(() => {
         setIsInitialized(true)
-      }, 300)
+      }, 500)
 
       return () => clearTimeout(timeoutId)
     },
@@ -50,7 +50,7 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
   const reviewsTotalWidth = reviews.length * 320
   const reviewsTotalPaddings = 16 * reviews.length
   const reviewsCardWidth = 320
-  const translateX = reviewsTotalWidth - reviewsTotalPaddings - reviewsCardWidth
+  const translateX = reviewsTotalWidth - reviewsTotalPaddings - reviewsCardWidth + 10
 
   return (
     <div>
@@ -74,7 +74,14 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
             highlightColor={adjustColor(fullConfig.theme.backgroundColor.bezh as string, 5, 'darker')}
           >
             {reviews.map(review => (
-              <Skeleton key={review._id} width={320} height={325} />
+              <Skeleton
+                key={review._id}
+                width={320}
+                height={435}
+                className="leading-none"
+                containerClassName="leading-none"
+                borderRadius={'6px'}
+              />
             ))}
           </SkeletonTheme>
         </div>
