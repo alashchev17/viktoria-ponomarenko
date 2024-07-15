@@ -14,7 +14,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
 
   return (
     <div
-      className={`px-4 py-4 bg-bezh rounded-xl flex ${reviewType === 'audio' || reviewType === 'text' ? 'flex-col' : 'flex-col-reverse'} items-start gap-6 max-w-[320px] min-w-[320px]`}
+      className={`px-4 py-4 bg-bezh rounded-[6px] flex ${reviewType === 'audio' || reviewType === 'text' ? 'flex-col' : 'flex-col-reverse'} items-start gap-6 max-w-[320px] min-w-[320px]`}
     >
       <div className="flex flex-col items-start gap-4">
         {/* БЛОК НОМЕР 1 */}

@@ -7,12 +7,12 @@
 }
 
 .slick-slider {
-  margin-inline: -40px; /* space between slides * (-1) */
+  margin-inline: -24px; /* space between slides * (-1) */
 }
 
 .slick-slide {
   > div {
     /* automatically generated 'div' by 'react-slick'*/
-    margin-inline: 10px; /*  space between slides / 2*/
+    margin-inline: 4px; /*  space between slides / 2*/
   }
 }
