@@ -55,17 +55,15 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
   return (
     <div>
       <div className="flex justify-between items-center mb-8 px-2">
+        <Button variant="icon" action={() => slider?.current?.slickPrev()}>
+          <Arrow fill="#F6EDDE" width={22} height={22} className="rotate-180" />
+        </Button>
         <Title level={4} className="font-sans font-bold text-dark-blue uppercase">
           Відгуки
         </Title>
-        <div className="flex gap-2 items-center">
-          <Button variant="icon" action={() => slider?.current?.slickPrev()}>
-            <Arrow fill="#F6EDDE" width={22} height={22} className="rotate-180" />
-          </Button>
-          <Button variant="icon" action={() => slider?.current?.slickNext()}>
-            <Arrow fill="#F6EDDE" width={22} height={22} />
-          </Button>
-        </div>
+        <Button variant="icon" action={() => slider?.current?.slickNext()}>
+          <Arrow fill="#F6EDDE" width={22} height={22} />
+        </Button>
       </div>
       {!isInitialized && (
         <div className="flex gap-2 mx-2" style={{ translate: `-${translateX / 2}px 0` }}>

@@ -84,15 +84,19 @@ export async function getReviews(): Promise<Review[]> {
     groq`*[_type == "review"]{
       _id,
       _createdAt,
-      personName,
-      personPosition,
-      "personAvatar": personAvatar.asset->url,
-      "personAvatarAlt": personAvatar.alt,
-      reviewType,
-      "reviewAsset": reviewAsset.asset->url,
-      duration,
-      reviewSlogan,
-      reviewText
+      "person": {
+        "name": personName,
+        "position": personPosition,
+        "avatar": personAvatar.asset->url,
+        "avatar_alt": personAvatar.alt
+      },
+      "review": {
+        "type": reviewType,
+        "asset": reviewAsset.asset->url,
+        duration,
+        "slogan": reviewSlogan,
+        "text": reviewText
+      },
     }`,
     {},
     { cache: 'no-store' },
