@@ -1,5 +1,5 @@
 import type { Service } from '@/types/Service'
-import { AccordionWrapper } from '../Accordion/AccordionWrapper'
+import { Accordion } from '@/components/Accordion'
 
 type ServiceCardBodyProps = {
   description: Service['description']
@@ -16,7 +16,7 @@ export const ServiceCardBody = ({ description, questions }: ServiceCardBodyProps
   return (
     <div className="px-4 py-6 flex flex-col gap-6">
       <p className="font-light text-sm">{description}</p>
-      <AccordionWrapper items={itemsForAccordion} />
+      <Accordion items={itemsForAccordion} />
     </div>
   )
 }

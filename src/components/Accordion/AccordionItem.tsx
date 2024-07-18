@@ -12,7 +12,7 @@ export type AccordionItemProps = {
   onClick: () => void
 }
 
-export const AccordionItem = ({ title, expandableText, isExpanded, onClick }: AccordionItemProps) => {
+const AccordionItem = ({ title, expandableText, isExpanded, onClick }: AccordionItemProps) => {
   const itemRef = useRef<HTMLDivElement>(null)
 
   const customAnswerComponents: PortableTextComponents = {
@@ -58,3 +58,5 @@ export const AccordionItem = ({ title, expandableText, isExpanded, onClick }: Ac
     </div>
   )
 }
+
+export default AccordionItem

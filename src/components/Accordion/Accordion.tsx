@@ -1,8 +1,9 @@
 'use client'
 
-import { TypedObject } from 'sanity'
-import { AccordionItem } from './AccordionItem'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
+
+import { TypedObject } from 'sanity'
 
 type AccordionWrapperProps = {
   items: {
@@ -12,13 +13,15 @@ type AccordionWrapperProps = {
   }[]
 }
 
-export const AccordionWrapper = ({ items }: AccordionWrapperProps) => {
+const DynamicAccordionItem = dynamic(() => import('./AccordionItem'), { ssr: false })
+
+export const Accordion = ({ items }: AccordionWrapperProps) => {
   const [expandedElement, setExpandedElement] = useState<string | null>(null)
 
   return (
     <div>
       {items.map(({ _id, title, expandableText }) => (
-        <AccordionItem
+        <DynamicAccordionItem
           key={_id}
           title={title}
           expandableText={expandableText}

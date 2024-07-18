@@ -20,6 +20,7 @@ export const HeroSection = async () => {
         padding="px-[23%]"
         imageWidth={information.image.width}
         imageHeight={information.image.height}
+        isLCP={true}
         loader={
           <SkeletonTheme
             baseColor={fullConfig.theme.backgroundColor.bezh as string}

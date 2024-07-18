@@ -12,6 +12,7 @@ type ImageWithLoaderProps = {
   loader: React.ReactNode
   wrapperClassName?: string
   className?: string
+  isLCP?: boolean
 }
 
 export const ImageWithLoader = ({
@@ -23,6 +24,7 @@ export const ImageWithLoader = ({
   wrapperClassName = 'relative w-full',
   className = '',
   loader,
+  isLCP = false,
 }: ImageWithLoaderProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
@@ -34,7 +36,8 @@ export const ImageWithLoader = ({
         className={`w-full ${isImageLoaded ? '' : 'opacity-0 absolute w-0 h-0'} ${className}`}
         width={imageWidth}
         height={imageHeight}
-        loading="lazy"
+        loading={!isLCP ? 'lazy' : undefined}
+        priority={isLCP}
         onLoad={() => setIsImageLoaded(true)}
       />
       {!isImageLoaded && <>{loader}</>}
