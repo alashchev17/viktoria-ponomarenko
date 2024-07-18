@@ -1,5 +1,3 @@
-'use client'
-
 import { Service } from '@/types/Service'
 import { Button } from '../UI/Button'
 
