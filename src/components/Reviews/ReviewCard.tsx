@@ -69,6 +69,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
           url={asset}
           light={type === 'audio' ? audioReviewPreview.src : avatar}
           playing
+          playsinline
           onEnded={() => {
             playerRef?.current?.showPreview()
           }}
