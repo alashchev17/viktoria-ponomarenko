@@ -6,8 +6,7 @@ export type Service = {
   description: string
   duration: string
   price: number
-  banner_url: string
-  banner_alt: string
+  link: string
   questions: Question[]
   banner: ServiceBanner
 }

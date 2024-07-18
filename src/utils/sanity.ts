@@ -57,6 +57,7 @@ export async function getServices(): Promise<Service[]> {
       description,
       duration,
       price,
+      link,
       "banner": {
         "url": image.asset->url,
         "alt": image.alt,

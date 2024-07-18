@@ -2,12 +2,11 @@ import { Service } from '@/types/Service'
 
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
-import { ServiceCardHeader } from '@/components/Services/ServiceCardHeader'
+import { ServiceCardHeader, ServiceCardBody, ServiceCardFooter } from '@/components/Services'
 import { ImageWithLoader } from '@/components/ImageWithLoader'
 
 import { getTailwindConfig } from '@/lib/getTailwindConfig'
 import { adjustColor } from '@/utils/adjustColor'
-import { ServiceCardBody } from './ServiceCardBody'
 
 type ServiceCardProps = {
   service: Service
@@ -41,6 +40,7 @@ export const ServiceCard = ({ service }: ServiceCardProps) => {
         }
       />
       <ServiceCardBody description={service.description} questions={service.questions} />
+      <ServiceCardFooter duration={service.duration} price={service.price} link={service.link} />
     </div>
   )
 }

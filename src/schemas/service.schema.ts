@@ -48,6 +48,12 @@ const serviceSchema = defineType({
       validation: rule => rule.required().error('Поле "Вартість послуги" обов\'язкове!'),
     }),
     defineField({
+      name: 'link',
+      title: 'Call-To-Action (посилання)',
+      type: 'url',
+      validation: rule => rule.required().error('Поле "Call-To-Action" обов\'язкове!'),
+    }),
+    defineField({
       name: 'image',
       title: 'Фотографія послуги',
       type: 'image',
