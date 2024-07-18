@@ -57,7 +57,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
         {/* БЛОК НОМЕР 2 */}
         {type === 'text' && (
           <div className="flex flex-col flex-start h-full justify-between">
-            {text && <p className="whitespace-pre-wrap line-clamp-[8] text-sm font-light">{text}</p>}
+            {text && <p className="whitespace-pre-wrap line-clamp-[8] text-sm font-light text-dark-blue">{text}</p>}
             <InnerLink href={`/reviews/${review._id}`} text="Прочитати повністю" />
           </div>
         )}

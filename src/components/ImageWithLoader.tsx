@@ -10,17 +10,28 @@ type ImageWithLoaderProps = {
   imageHeight: number
   padding?: string
   loader: React.ReactNode
+  wrapperClassName?: string
+  className?: string
 }
 
-export const ImageWithLoader = ({ src, alt, imageWidth, imageHeight, padding = '', loader }: ImageWithLoaderProps) => {
+export const ImageWithLoader = ({
+  src,
+  alt,
+  imageWidth,
+  imageHeight,
+  padding = '',
+  wrapperClassName = 'relative w-full',
+  className = '',
+  loader,
+}: ImageWithLoaderProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
   return (
-    <div className={`relative w-full ${padding}`}>
+    <div className={`${wrapperClassName} ${padding}`}>
       <Image
         src={src}
         alt={alt}
-        className={`w-full ${isImageLoaded ? '' : 'opacity-0 absolute w-0 h-0'}`}
+        className={`w-full ${isImageLoaded ? '' : 'opacity-0 absolute w-0 h-0'} ${className}`}
         width={imageWidth}
         height={imageHeight}
         loading="lazy"

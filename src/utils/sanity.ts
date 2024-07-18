@@ -57,8 +57,12 @@ export async function getServices(): Promise<Service[]> {
       description,
       duration,
       price,
-      "banner_url": image.asset->url,
-      "banner_alt": image.alt,
+      "banner": {
+        "url": image.asset->url,
+        "alt": image.alt,
+        "width": image.asset->metadata.dimensions.width,
+        "height": image.asset->metadata.dimensions.height,
+      },
       "questions": questionServices[]->{
         _id,
         name,

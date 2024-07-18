@@ -9,4 +9,12 @@ export type Service = {
   banner_url: string
   banner_alt: string
   questions: Question[]
+  banner: ServiceBanner
+}
+
+type ServiceBanner = {
+  url: string
+  alt: string
+  width: number
+  height: number
 }

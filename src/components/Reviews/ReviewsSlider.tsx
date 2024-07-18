@@ -3,21 +3,20 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../../tailwind.config'
-
 import { useRef, useState } from 'react'
 import Slider from 'react-slick'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import type { Settings as SliderSettings } from 'react-slick'
 
 import type { Review } from '@/types/Review'
-import { adjustColor } from '@/utils/adjustColor'
 
-import { ReviewCard } from '@/components/ReviewCard'
+import { ReviewCard } from '@/components/Reviews/ReviewCard'
 import { Button } from '@/components/UI/Button'
 import { Title } from '@/components/UI/Title'
 import { Arrow } from '@/components/Icons/Arrow'
+
+import { adjustColor } from '@/utils/adjustColor'
+import { getTailwindConfig } from '@/lib/getTailwindConfig'
 
 type ReviewsSliderProps = {
   reviews: Review[]
@@ -26,7 +25,7 @@ type ReviewsSliderProps = {
 export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
   const slider = useRef<Slider | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
-  const fullConfig = resolveConfig(tailwindConfig)
+  const fullConfig = getTailwindConfig()
 
   const sliderSettings: SliderSettings = {
     speed: 500,
@@ -54,11 +53,11 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8 px-2">
+      <div className="flex justify-between items-center mb-6 px-2">
         <Button variant="icon" action={() => slider?.current?.slickPrev()}>
           <Arrow fill="#F6EDDE" width={22} height={22} className="rotate-180" />
         </Button>
-        <Title level={4} className="font-sans font-bold text-dark-blue uppercase">
+        <Title level={6} className="font-sans font-bold text-bezh uppercase">
           Відгуки
         </Title>
         <Button variant="icon" action={() => slider?.current?.slickNext()}>

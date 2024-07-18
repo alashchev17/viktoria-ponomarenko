@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ua">
-      <body className={`${nyghtFont.variable} ${nyghtFontItalic.variable} ${manrope.variable} bg-blue`}>
+      <body className={`${nyghtFont.variable} ${nyghtFontItalic.variable} ${manrope.variable} bg-dark-blue text-bezh`}>
         {children}
       </body>
     </html>
