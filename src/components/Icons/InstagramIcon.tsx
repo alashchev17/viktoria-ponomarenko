@@ -1,9 +1,9 @@
-import React from 'react';
-import { SVGProps } from 'react';
+import React from 'react'
+import { SVGProps } from 'react'
 
 export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox={'0 0 15 15'} {...props}>
       <path
         fill={props.fill}
         width={props.width}
@@ -13,5 +13,5 @@ export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => {
         clipRule="evenodd"
       />
     </svg>
-  );
-};
+  )
+}

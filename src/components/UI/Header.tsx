@@ -18,16 +18,16 @@ export const Header = async () => {
         <div className="flex gap-2 items-center">
           {links.instagram_url && (
             <Button variant="icon" href={links.instagram_url}>
-              <InstagramIcon fill={fullConfig.theme.backgroundColor.bezh as string} width="15" height="15" />
+              <InstagramIcon fill={fullConfig.theme.backgroundColor.bezh as string} width="20" height="20" />
             </Button>
           )}
           {links.telegram_url && (
             <Button variant="icon" href={links.telegram_url}>
               <TelegramIcon
                 fill={fullConfig.theme.backgroundColor.bezh as string}
-                width="13.33"
-                height="11.01"
-                className="mr-[1px]"
+                width="18"
+                height="18"
+                className="mr-[2px]"
               />
             </Button>
           )}
@@ -39,7 +39,9 @@ export const Header = async () => {
       >
         V
       </Title>
-      <Button variant={'inline'}>Записатися</Button>
+      <Button variant="inline" href={links.telegram_url ? links.telegram_url : undefined}>
+        Записатися
+      </Button>
     </header>
   )
 }
