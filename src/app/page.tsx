@@ -3,6 +3,7 @@ import { Header } from '@/components/UI/Header'
 import { ServiceSection } from '@/components/Services/ServiceSection'
 import { HeroSection } from '@/components/Hero/HeroSection'
 import { ReviewsSection } from '@/components/Reviews/ReviewsSection'
+import { ChannelSection } from '@/components/Channel/ChannelSection'
 
 export const revalidate = 30
 
@@ -14,6 +15,7 @@ export default function Home() {
         <HeroSection />
         <ServiceSection />
         <ReviewsSection />
+        <ChannelSection />
       </div>
     </div>
   )

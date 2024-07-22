@@ -29,7 +29,7 @@ export const ImageWithLoader = ({
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
   return (
-    <div className={`${wrapperClassName} ${padding}`}>
+    <div className={`${wrapperClassName} ${padding} overflow-hidden`}>
       <Image
         src={src}
         alt={alt}

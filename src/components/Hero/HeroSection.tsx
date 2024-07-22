@@ -27,7 +27,7 @@ export const HeroSection = async () => {
             highlightColor={adjustColor(fullConfig.theme.backgroundColor.bezh as string, 5, 'darker')}
           >
             <Skeleton
-              containerClassName="w-full inline-block leading-none"
+              containerClassName="w-full block leading-none"
               className="inline-block w-full leading-none"
               style={{
                 aspectRatio: information.image.width / information.image.height,

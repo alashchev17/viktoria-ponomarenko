@@ -29,7 +29,7 @@ export const ServiceCard = ({ service }: ServiceCardProps) => {
             highlightColor={adjustColor(fullConfig.theme.backgroundColor.bezh as string, 5, 'darker')}
           >
             <Skeleton
-              containerClassName="w-full inline-block leading-none"
+              containerClassName="w-full block leading-none"
               className="inline-block w-full leading-none"
               style={{
                 height: 260,
