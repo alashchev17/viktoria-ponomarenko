@@ -15,6 +15,10 @@ const informationSchema = defineType({
       title: 'Посилання',
     },
     {
+      name: 'channel',
+      title: 'Інформація про канал в Telegram',
+    },
+    {
       name: 'administrative',
       title: 'Адміністративні поля',
     },
@@ -62,7 +66,7 @@ const informationSchema = defineType({
       name: 'telegram',
       title: 'Посилання на Telegram',
       type: 'url',
-      group: 'links',
+      group: 'channel',
     }),
     defineField({
       name: 'youtube',
@@ -81,6 +85,18 @@ const informationSchema = defineType({
       title: 'Посилання на TikTok',
       type: 'url',
       group: 'links',
+    }),
+    defineField({
+      name: 'telegram_name',
+      title: 'Назва каналу в Telegram',
+      type: 'string',
+      group: 'channel',
+    }),
+    defineField({
+      name: 'telegram_description',
+      title: 'Опис каналу в Telegram',
+      type: 'text',
+      group: 'channel',
     }),
     defineField({
       name: 'copyright',

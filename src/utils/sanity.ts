@@ -34,6 +34,10 @@ export async function getInformation(): Promise<Information> {
         "instagram_url": instagram,
         "tiktok_url": tiktok
       },
+      "channel": {
+        "name": telegram_name,
+        "description": telegram_description,
+      }
     }`,
     {},
     { cache: 'no-store' },

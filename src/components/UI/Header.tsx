@@ -5,13 +5,12 @@ import { Title } from '@/components/UI/Title'
 import { TelegramIcon } from '@/components/Icons/TelegramIcon'
 import { InstagramIcon } from '@/components/Icons/InstagramIcon'
 
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../../../tailwind.config'
+import { getTailwindConfig } from '@/lib/getTailwindConfig'
 
 export const Header = async () => {
   const { links } = await getInformation()
+  const fullConfig = getTailwindConfig()
 
-  const fullConfig = resolveConfig(tailwindConfig)
   return (
     <header className="fixed top-2 left-[50%] translate-x-[-50%] z-50 flex w-[calc(100%-1rem)] justify-between items-center px-2 py-3 font-serif text-4xl border-2 rounded-xl bg-dark-blue">
       {links && (

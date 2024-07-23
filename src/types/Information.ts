@@ -5,6 +5,7 @@ export type Information = {
   description: string
   image: InformationImage
   links: InformationLinks
+  channel: InformationChannel
 }
 
 type InformationImage = {
@@ -19,4 +20,9 @@ type InformationLinks = {
   youtube_url: string | null
   instagram_url: string | null
   tiktok_url: string | null
+}
+
+type InformationChannel = {
+  name: string
+  description: string
 }
