@@ -49,7 +49,7 @@ export const ChannelSection = async () => {
             />
           </div>
           <a
-            className="text-base text-bezh bg-[#5C82C8] border-2 border-bezh rounded-xl font-serif-italic tracking-[.13em] py-6 w-full text-center"
+            className="w-full py-6 font-serif-italic font-semibold tracking-[.13em] text-base text-center text-bezh bg-[#5C82C8] border-2 border-bezh rounded-xl"
             href={information.links.telegram_url}
             target="_blank"
             rel="noopener noreferrer"
