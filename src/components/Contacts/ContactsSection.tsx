@@ -1,14 +1,18 @@
-import { getInformation } from '@/utils/sanity'
-import { Title } from '../UI/Title'
-import { Contacts } from './ContactsSection.styles'
-import { Information } from '@/types/Information'
-import { Button } from '../UI/Button'
 import type { ReactNode } from 'react'
-import { TelegramIcon } from '../Icons/TelegramIcon'
-import { InstagramIcon } from '../Icons/InstagramIcon'
+
+import { Title } from '@/components/UI/Title'
+import { Information } from '@/types/Information'
+import { Button } from '@/components/UI/Button'
+
 import { getTailwindConfig } from '@/lib/getTailwindConfig'
-import { YoutubeIcon } from '../Icons/YoutubeIcon'
-import { TiktokIcon } from '../Icons/TiktokIcon'
+import { getInformation } from '@/utils/sanity'
+
+import { TelegramIcon } from '@/components/Icons/TelegramIcon'
+import { YoutubeIcon } from '@/components/Icons/YoutubeIcon'
+import { TiktokIcon } from '@/components/Icons/TiktokIcon'
+import { InstagramIcon } from '@/components/Icons/InstagramIcon'
+
+import { Contacts } from './ContactsSection.styles'
 
 interface LinkArray {
   name: string
