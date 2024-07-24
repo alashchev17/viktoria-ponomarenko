@@ -6,6 +6,7 @@ export type Information = {
   image: InformationImage
   links: InformationLinks
   channel: InformationChannel
+  copyright?: string
 }
 
 type InformationImage = {

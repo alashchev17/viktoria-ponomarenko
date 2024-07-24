@@ -7,6 +7,7 @@ type ButtonProps = {
   id?: string
   href?: string
   action?: () => void
+  className?: string
   children: React.ReactNode
 }
 
@@ -18,16 +19,16 @@ const buttonClassNames = {
   icon: 'leading-none py-2 px-2 flex items-center justify-center border-2 border-bezh rounded-full aspect-square',
 }
 
-export const Button = ({ children, variant, href, action, id = '' }: ButtonProps) => {
+export const Button = ({ children, variant, href, action, id = '', className = '' }: ButtonProps) => {
   if (href) {
     return (
-      <a id={id} href={href} className={buttonClassNames[variant]} target="_blank">
+      <a id={id} href={href} className={`${buttonClassNames[variant]} ${className}`} target="_blank">
         {children}
       </a>
     )
   }
   return (
-    <button id={id} className={buttonClassNames[variant]} onClick={action}>
+    <button id={id} className={`${buttonClassNames[variant]} ${className}`} onClick={action}>
       {children}
     </button>
   )

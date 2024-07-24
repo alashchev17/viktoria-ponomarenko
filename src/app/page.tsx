@@ -4,6 +4,7 @@ import { ServiceSection } from '@/components/Services/ServiceSection'
 import { HeroSection } from '@/components/Hero/HeroSection'
 import { ReviewsSection } from '@/components/Reviews/ReviewsSection'
 import { ChannelSection } from '@/components/Channel/ChannelSection'
+import { ContactsSection } from '@/components/Contacts/ContactsSection'
 
 export const revalidate = 30
 
@@ -16,6 +17,7 @@ export default function Home() {
         <ServiceSection />
         <ReviewsSection />
         <ChannelSection />
+        <ContactsSection />
       </div>
     </div>
   )

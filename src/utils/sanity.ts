@@ -37,7 +37,8 @@ export async function getInformation(): Promise<Information> {
       "channel": {
         "name": telegram_name,
         "description": telegram_description,
-      }
+      },
+      copyright
     }`,
     {},
     { cache: 'no-store' },

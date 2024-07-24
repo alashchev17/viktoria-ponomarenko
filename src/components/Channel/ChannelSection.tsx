@@ -15,7 +15,7 @@ export const ChannelSection = async () => {
   return (
     <>
       {information.links.telegram_url && (
-        <div className="flex flex-col gap-2 px-2 py-8">
+        <div className="flex flex-col gap-2 px-2 pt-8">
           <div className="relative overflow-hidden border-2 border-bezh rounded-xl">
             <div className="absolute w-full top-0 left-0 z-10 pt-2">
               <Title level={1} className="uppercase font-bold text-center">
