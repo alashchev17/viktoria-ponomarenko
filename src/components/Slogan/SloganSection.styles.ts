@@ -14,6 +14,7 @@ export const Circle = styled.div`
   height: auto;
   aspect-ratio: 1 / 1;
   display: flex;
+  padding: 75.5px 50px 62.5px 50px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
