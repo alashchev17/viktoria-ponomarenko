@@ -1,7 +1,8 @@
 import { Header } from '@/components/UI/Header'
 
-import { ServiceSection } from '@/components/Services/ServiceSection'
 import { HeroSection } from '@/components/Hero/HeroSection'
+import { SloganSection } from '@/components/Slogan/SloganSection'
+import { ServiceSection } from '@/components/Services/ServiceSection'
 import { ReviewsSection } from '@/components/Reviews/ReviewsSection'
 import { ChannelSection } from '@/components/Channel/ChannelSection'
 import { ContactsSection } from '@/components/Contacts/ContactsSection'
@@ -14,6 +15,7 @@ export default function Home() {
       <div className="pt-[calc(60px+1rem)]">
         <Header />
         <HeroSection />
+        <SloganSection />
         <ServiceSection />
         <ReviewsSection />
         <ChannelSection />
