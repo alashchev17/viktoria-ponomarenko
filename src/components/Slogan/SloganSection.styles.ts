@@ -6,15 +6,18 @@ import { getTailwindConfig } from '@/lib/getTailwindConfig'
 const fullConfig = getTailwindConfig()
 
 export const Container = styled.div`
-  padding: 110px 38px;
+  padding: 110px 0;
+  overflow: hidden;
 `
 export const Circle = styled.div`
   position: relative;
+  max-width: 358px;
+  margin: 0 auto;
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
   display: flex;
-  padding: 75.5px 50px 62.5px 50px;
+  // padding: 75.5px 10px 62.5px 10px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
