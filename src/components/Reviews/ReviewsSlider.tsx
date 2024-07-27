@@ -49,10 +49,12 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
     },
   }
 
+  const screenWidth = window.innerWidth
   const reviewsCardWidth = 320
-  const reviewsTotalWidth = reviewsCardWidth * reviews.length
-  const reviewsTotalPaddings = 16 * reviews.length
-  const translateX = (reviewsTotalWidth - reviewsTotalPaddings - reviewsCardWidth - 32) / 2
+  const reviewsCardPadding = 8
+  const widthToSecondElementStart = reviewsCardWidth + reviewsCardPadding
+  const widthToSecondElementCenter = widthToSecondElementStart + reviewsCardWidth / 2
+  const totalTranslation = screenWidth / 2 - widthToSecondElementCenter - reviewsCardPadding // deducing padding because we have container
 
   return (
     <div>
@@ -68,7 +70,7 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
         </Button>
       </div>
       {!isInitialized && (
-        <div className="flex gap-2 mx-2" style={{ translate: `-${translateX}px 0` }}>
+        <div className="flex gap-2 mx-2" style={{ translate: `${totalTranslation}px 0` }}>
           <SkeletonTheme
             baseColor={fullConfig.theme.backgroundColor.bezh as string}
             highlightColor={adjustColor(fullConfig.theme.backgroundColor.bezh as string, 5, 'darker')}
