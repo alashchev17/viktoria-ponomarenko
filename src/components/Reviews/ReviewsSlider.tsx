@@ -33,7 +33,10 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
-    draggable: true,
+    draggable: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    swipe: false,
     centerMode: true,
     variableWidth: true,
     lazyLoad: 'ondemand',
@@ -46,10 +49,10 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
     },
   }
 
-  const reviewsTotalWidth = reviews.length * 320
-  const reviewsTotalPaddings = 16 * reviews.length
   const reviewsCardWidth = 320
-  const translateX = reviewsTotalWidth - reviewsTotalPaddings - reviewsCardWidth + 10
+  const reviewsTotalWidth = reviewsCardWidth * reviews.length
+  const reviewsTotalPaddings = 16 * reviews.length
+  const translateX = (reviewsTotalWidth - reviewsTotalPaddings - reviewsCardWidth - 32) / 2
 
   return (
     <div>
@@ -65,7 +68,7 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
         </Button>
       </div>
       {!isInitialized && (
-        <div className="flex gap-2 mx-2" style={{ translate: `-${translateX / 2}px 0` }}>
+        <div className="flex gap-2 mx-2" style={{ translate: `-${translateX}px 0` }}>
           <SkeletonTheme
             baseColor={fullConfig.theme.backgroundColor.bezh as string}
             highlightColor={adjustColor(fullConfig.theme.backgroundColor.bezh as string, 5, 'darker')}

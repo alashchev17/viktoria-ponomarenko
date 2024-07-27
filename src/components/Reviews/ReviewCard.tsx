@@ -65,7 +65,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       {isPlayerShown && (
         <ReactPlayer
           ref={playerRef}
-          className="[&>video]:object-cover max-h-[50%]"
+          className="[&>video]:object-cover max-h-[51%]"
           url={asset}
           light={type === 'audio' ? audioReviewPreview.src : avatar}
           playing

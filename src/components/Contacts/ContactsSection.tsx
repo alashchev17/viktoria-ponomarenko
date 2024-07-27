@@ -50,18 +50,22 @@ export const ContactsSection = async () => {
   })
 
   return (
-    <Contacts>
-      <Title level={6} className="font-sans text-bezh uppercase font-bold">
-        Контакти
-      </Title>
-      <div className="px-2 w-full flex justify-between">
-        {linksArray.map(link => (
-          <Button key={link.name} href={link.link} variant="icon" className="w-[80px] h-[80px]">
-            {link.icon && link.icon()}
-          </Button>
-        ))}
-      </div>
-      {copyright && <p className="mt-5 font-sans text-bezh text-sm">{copyright}</p>}
-    </Contacts>
+    <>
+      {linksArray.length > 0 && (
+        <Contacts>
+          <Title level={6} className="font-sans text-bezh uppercase font-bold">
+            Контакти
+          </Title>
+          <div className="px-2 w-full flex justify-between">
+            {linksArray.map(link => (
+              <Button key={link.name} href={link.link} variant="icon" className="w-[80px] h-[80px]">
+                {link.icon && link.icon()}
+              </Button>
+            ))}
+          </div>
+          {copyright && <p className="mt-5 font-sans text-bezh text-sm">{copyright}</p>}
+        </Contacts>
+      )}
+    </>
   )
 }
