@@ -13,9 +13,10 @@ import audioReviewPreview from '@/assets/audio-review-preview.png'
 
 type ReviewCardProps = {
   review: Review
+  onInnerLinkClick: (review: Review) => void
 }
 
-export const ReviewCard = ({ review }: ReviewCardProps) => {
+export const ReviewCard = ({ review, onInnerLinkClick }: ReviewCardProps) => {
   const {
     review: { asset, duration, slogan, text, type },
     person: { avatar, avatar_alt, name, position },
@@ -32,7 +33,6 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
     >
       <div className="w-full h-full flex flex-col justify-between gap-6 px-4 py-4">
         <div className="flex flex-col items-start gap-4">
-          {/* БЛОК НОМЕР 1 */}
           <div className="flex items-center gap-4">
             <span className="px-2 py-1 font-semibold text-sm text-bezh bg-blue rounded-sm">{reviewTypeLabel}</span>
             {type !== 'text' && <span className="font-semibold text-sm text-dark-blue">{duration} хв</span>}
@@ -54,11 +54,10 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
             <blockquote className="font-serif-italic text-bright-blue text-2xl">{`"...${slogan}..."`}</blockquote>
           )}
         </div>
-        {/* БЛОК НОМЕР 2 */}
         {type === 'text' && (
           <div className="flex flex-col flex-start h-full justify-between">
             {text && <p className="whitespace-pre-wrap line-clamp-[8] text-sm font-light text-dark-blue">{text}</p>}
-            <InnerLink href={`/reviews/${review._id}`} text="Прочитати повністю" />
+            <InnerLink text="Прочитати повністю" onClick={() => onInnerLinkClick(review)} />
           </div>
         )}
       </div>

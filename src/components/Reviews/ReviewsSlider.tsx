@@ -11,6 +11,7 @@ import type { Settings as SliderSettings } from 'react-slick'
 import type { Review } from '@/types/Review'
 
 import { ReviewCard } from '@/components/Reviews/ReviewCard'
+import { ReviewModal } from '@/components/Reviews/ReviewModal'
 import { Button } from '@/components/UI/Button'
 import { Title } from '@/components/UI/Title'
 import { Arrow } from '@/components/Icons/Arrow'
@@ -25,6 +26,11 @@ type ReviewsSliderProps = {
 export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
   const slider = useRef<Slider | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentReview, setCurrentReview] = useState<Review>(
+    reviews.find(review => review.review.type === 'text') as Review,
+  )
+
   const fullConfig = getTailwindConfig()
 
   const sliderSettings: SliderSettings = {
@@ -55,6 +61,11 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
   const widthToSecondElementStart = reviewsCardWidth + reviewsCardPadding
   const widthToSecondElementCenter = widthToSecondElementStart + reviewsCardWidth / 2
   const totalTranslation = screenWidth / 2 - widthToSecondElementCenter - reviewsCardPadding // deducing padding because we have container
+
+  const handleModal = (review: Review) => {
+    setCurrentReview(review)
+    setIsModalOpen(true)
+  }
 
   return (
     <div>
@@ -90,9 +101,10 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
       )}
       <Slider {...sliderSettings} ref={slider} className={isInitialized ? '' : 'opacity-0 h-0'}>
         {reviews.map(review => (
-          <ReviewCard key={review._id} review={review} />
+          <ReviewCard key={review._id} review={review} onInnerLinkClick={handleModal} />
         ))}
       </Slider>
+      <ReviewModal review={currentReview} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

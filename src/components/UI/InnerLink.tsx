@@ -1,19 +1,20 @@
-import Link from 'next/link'
+'use client'
+
 import { LinkArrow } from '@/components/Icons/LinkArrow'
 
 type InnerLinkProps = {
-  href: string
   text: string
   className?: string
+  onClick?: () => void
 }
 
-export const InnerLink = ({ href, text, className }: InnerLinkProps) => {
+export const InnerLink = ({ text, className, onClick }: InnerLinkProps) => {
   const classes = className ? className : 'text-bright-blue text-base inline-flex items-end gap-2'
 
   return (
-    <Link href={href} className={classes}>
+    <button onClick={onClick} className={classes}>
       {text}
       <LinkArrow />
-    </Link>
+    </button>
   )
 }
