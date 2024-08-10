@@ -37,6 +37,12 @@ export async function getInformation(): Promise<Information> {
       "channel": {
         "name": telegram_name,
         "description": telegram_description,
+        "image": {
+          "width": telegram_image.asset->metadata.dimensions.width,
+          "height": telegram_image.asset->metadata.dimensions.height,
+          "alt": telegram_image.alt,
+          "url": telegram_image.asset->url,
+        }
       },
       copyright
     }`,

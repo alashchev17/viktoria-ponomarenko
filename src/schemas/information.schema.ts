@@ -99,6 +99,24 @@ const informationSchema = defineType({
       group: 'channel',
     }),
     defineField({
+      name: 'telegram_image',
+      title: 'Фото для каналу в Telegram',
+      description:
+        'Фотографія, що буде використана в якості фонового зображення для секції з інформацію про канал в Telegram',
+      type: 'image',
+      options: { hotspot: true },
+      validation: rule => rule.required().assetRequired().error('Поле "Головне фото" обов\'язкове!'),
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Альтернативний текст на випадок помилки завантаження фото',
+          type: 'string',
+          validation: rule => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
+        }),
+      ],
+      group: 'channel',
+    }),
+    defineField({
       name: 'copyright',
       title: 'Текст копірайту у футері сайту',
       type: 'string',

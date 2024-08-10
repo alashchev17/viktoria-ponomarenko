@@ -26,4 +26,5 @@ type InformationLinks = {
 type InformationChannel = {
   name: string
   description: string
+  image: InformationImage
 }

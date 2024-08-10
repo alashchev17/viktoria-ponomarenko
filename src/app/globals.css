@@ -16,3 +16,12 @@
     margin-inline: 4px; /*  space between slides / 2*/
   }
 }
+
+.external-glow-purple {
+  /* border: 0.4px solid #cde1ff; */
+  text-shadow: 0px 4px 25.8px #cb99d9;
+}
+
+.external-glow-blue {
+  text-shadow: 0px 4px 50px #4563ff;
+}

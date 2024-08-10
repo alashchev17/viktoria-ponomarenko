@@ -6,7 +6,7 @@ import { getTailwindConfig } from '@/lib/getTailwindConfig'
 const fullConfig = getTailwindConfig()
 
 export const Container = styled.div`
-  padding: 110px 0;
+  padding: 70px 0 110px 0;
   overflow: hidden;
 `
 export const Circle = styled.div`
