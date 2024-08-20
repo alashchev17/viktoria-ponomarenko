@@ -16,7 +16,7 @@ export const Contacts = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${fullConfig.theme.backgroundColor['dark-blue'] as string};
-  background-image: url('/contacts-bg.png');
+  background-image: url('/section-bg.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

@@ -5,6 +5,17 @@ import { getTailwindConfig } from '@/lib/getTailwindConfig'
 
 const fullConfig = getTailwindConfig()
 
+export const Slogan = styled.section`
+  position: relative;
+  background-color: ${fullConfig.theme.backgroundColor['dark-blue'] as string};
+  background-image: url('/section-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  z-index: -1;
+`
+
 export const Container = styled.div`
   padding: 70px 0 110px 0;
   overflow: hidden;

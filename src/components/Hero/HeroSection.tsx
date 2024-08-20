@@ -2,8 +2,8 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
 import { getInformation } from '@/utils/sanity'
 
-import { Title } from '@/components/UI/Title'
 import { ImageWithLoader } from '@/components/ImageWithLoader'
+import { Title } from '@/components/UI/Title'
 
 import { getTailwindConfig } from '@/lib/getTailwindConfig'
 import { adjustColor } from '@/utils/adjustColor'
@@ -46,13 +46,14 @@ export const HeroSection = async () => {
           imageWidth={image.width}
           imageHeight={image.height}
           isLCP={true}
+          isJSX={true}
           loader={
             <SkeletonTheme
               baseColor={fullConfig.theme.backgroundColor.bezh as string}
               highlightColor={adjustColor(fullConfig.theme.backgroundColor.bezh as string, 5, 'darker')}
             >
               <Skeleton
-                containerClassName="w-full block leading-none"
+                containerClassName="w-full h-full block leading-none"
                 className="inline-block w-full leading-none"
                 style={{
                   aspectRatio: image.width / image.height,

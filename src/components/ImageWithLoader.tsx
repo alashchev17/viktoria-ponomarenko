@@ -13,6 +13,7 @@ type ImageWithLoaderProps = {
   wrapperClassName?: string
   className?: string
   isLCP?: boolean
+  isJSX?: boolean // this flag is used to be able to render images as a background for div and not a Image component
 }
 
 export const ImageWithLoader = ({
@@ -25,6 +26,7 @@ export const ImageWithLoader = ({
   className = '',
   loader,
   isLCP = false,
+  isJSX = false,
 }: ImageWithLoaderProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
@@ -39,8 +41,29 @@ export const ImageWithLoader = ({
         loading={!isLCP ? 'lazy' : undefined}
         priority={isLCP}
         onLoad={() => setIsImageLoaded(true)}
+        style={
+          isJSX
+            ? {
+                height: 'calc(100dvh - 60px - 2.5rem)',
+                objectFit: 'cover',
+                objectPosition: 'top',
+              }
+            : undefined
+        }
       />
-      {!isImageLoaded && <>{loader}</>}
+      {!isImageLoaded && (
+        <div
+          style={
+            isJSX
+              ? {
+                  height: typeof window !== 'undefined' ? window.innerHeight - 60 - 40 : 0,
+                }
+              : undefined
+          }
+        >
+          {loader}
+        </div>
+      )}
     </div>
   )
 }
