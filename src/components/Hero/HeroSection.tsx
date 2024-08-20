@@ -56,7 +56,7 @@ export const HeroSection = async () => {
                 containerClassName="w-full h-full block leading-none"
                 className="inline-block w-full leading-none"
                 style={{
-                  aspectRatio: image.width / image.height,
+                  height: '100%',
                 }}
               />
             </SkeletonTheme>
