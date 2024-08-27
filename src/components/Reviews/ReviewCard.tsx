@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import ReactPlayer from 'react-player/lazy'
 
 import type { Review } from '@/types/Review'
@@ -71,7 +71,7 @@ export const ReviewCard = ({ review, onInnerLinkClick }: ReviewCardProps) => {
       {isPlayerShown && (
         <ReactPlayer
           ref={playerRef}
-          className="[&>video]:object-cover max-h-[51%]"
+          className="[&>video]:object-cover max-h-[48%]"
           url={asset}
           light={type === 'audio' ? audioReviewPreview.src : avatar}
           playing
@@ -95,6 +95,17 @@ export const ReviewCardText = ({ review, onClose }: ReviewCardTextProps) => {
     person: { avatar, avatar_alt, name, position },
     review: { slogan, text },
   } = review
+
+  const textContainer = useRef<HTMLParagraphElement | null>(null)
+
+  useEffect(() => {
+    if (text && textContainer.current) {
+      const textHeight = textContainer.current?.scrollHeight
+      if (textHeight) {
+        textContainer.current.style.maxHeight = `${textHeight < 180 ? textHeight : 180}px`
+      }
+    }
+  }, [text])
 
   return (
     <div className="bg-bezh rounded-[6px] flex flex-col items-start justify-between max-w-[320px] min-w-[320px] min-h-[435px] overflow-hidden">
@@ -122,7 +133,11 @@ export const ReviewCardText = ({ review, onClose }: ReviewCardTextProps) => {
           )}
         </div>
         <div className="flex flex-col flex-start h-full justify-between">
-          {text && <p className="whitespace-pre-wrap text-sm font-light text-dark-blue">{text}</p>}
+          {text && (
+            <p ref={textContainer} className="whitespace-pre-wrap text-sm font-light text-dark-blue overflow-auto">
+              {text}
+            </p>
+          )}
         </div>
       </div>
     </div>
