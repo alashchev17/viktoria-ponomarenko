@@ -22,11 +22,12 @@ export async function getInformation(): Promise<Information> {
       _createdAt,
       name,
       description,
-      image {
-        "width": asset->metadata.dimensions.width,
-        "height": asset->metadata.dimensions.height,
+      "images": images[]{
+        "url": image.asset->url,
+        "width": image.asset->metadata.dimensions.width,
+        "height": image.asset->metadata.dimensions.height,
         alt,
-        "url": asset->url
+        device
       },
       "links": {
         "telegram_url": telegram,

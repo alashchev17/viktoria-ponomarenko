@@ -47,18 +47,41 @@ const informationSchema = defineType({
       group: 'main',
     }),
     defineField({
-      name: 'image',
-      title: 'Головне фото',
-      type: 'image',
-      options: { hotspot: true },
-      validation: rule => rule.required().assetRequired().error('Поле "Головне фото" обов\'язкове!'),
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Альтернативний текст на випадок помилки завантаження фото',
-          type: 'string',
-          validation: rule => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
-        }),
+      name: 'images',
+      title: 'Фото для мобільних та десктопних пристроїв',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          title: 'Головне фото',
+          fields: [
+            defineField({
+              name: 'image',
+              title: 'Зображення',
+              type: 'image',
+              options: { hotspot: true },
+              validation: rule => rule.required().assetRequired().error('Поле "Зображення" обов\'язкове!'),
+            }),
+            defineField({
+              name: 'alt',
+              title: 'Альтернативний текст',
+              type: 'string',
+              validation: rule => rule.required().error('Поле "Альтернативний текст" обов\'язкове!'),
+            }),
+            defineField({
+              name: 'device',
+              title: 'Пристрій',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Мобільний', value: 'mobile' },
+                  { title: 'Десктоп', value: 'desktop' },
+                ],
+              },
+              validation: rule => rule.required().error('Поле "Пристрій" обов\'язкове!'),
+            }),
+          ],
+        },
       ],
       group: 'main',
     }),

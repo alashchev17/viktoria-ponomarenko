@@ -3,17 +3,18 @@ export type Information = {
   _createdAt: string
   name: string
   description: string
-  image: InformationImage
+  images: InformationImage[]
   links: InformationLinks
   channel: InformationChannel
   copyright?: string
 }
 
-type InformationImage = {
+export type InformationImage = {
   url: string
-  alt: string
   width: number
   height: number
+  alt: string
+  device: 'mobile' | 'desktop'
 }
 
 type InformationLinks = {
@@ -23,8 +24,10 @@ type InformationLinks = {
   tiktok_url: string | null
 }
 
+export type ChannelImage = Omit<InformationImage, 'device'>
+
 type InformationChannel = {
   name: string
   description: string
-  image: InformationImage
+  image: ChannelImage
 }

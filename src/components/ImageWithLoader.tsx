@@ -14,6 +14,7 @@ type ImageWithLoaderProps = {
   className?: string
   isLCP?: boolean
   isJSX?: boolean // this flag is used to be able to render images as a background for div and not a Image component
+  isDesktop?: boolean
 }
 
 export const ImageWithLoader = ({
@@ -27,6 +28,7 @@ export const ImageWithLoader = ({
   loader,
   isLCP = false,
   isJSX = false,
+  isDesktop = false,
 }: ImageWithLoaderProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
@@ -44,9 +46,9 @@ export const ImageWithLoader = ({
         style={
           isJSX
             ? {
-                height: 'calc(100dvh - 60px - 2.5rem)',
+                height: isDesktop ? 'calc(100dvh - 60px - 4rem)' : 'calc(100dvh - 60px - 2.5rem)',
                 objectFit: 'cover',
-                objectPosition: 'top',
+                objectPosition: isDesktop ? 'top' : 'top right',
               }
             : undefined
         }

@@ -69,7 +69,7 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-6 px-2">
+      <div className="flex justify-between items-center mb-6 px-2 lg:px-6">
         <Button variant="icon" action={() => slider?.current?.slickPrev()}>
           <Arrow fill="#F6EDDE" width={22} height={22} className="rotate-180" />
         </Button>
