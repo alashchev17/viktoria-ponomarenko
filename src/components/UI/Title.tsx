@@ -1,7 +1,7 @@
 import React from 'react'
 
 type TitleProps = {
-  level: 1 | 2 | 3 | 4 | 5 | 6
+  level: 1 | 2 | 3 | 4 | 5 | 6 | 'auto'
   className?: string
   children: React.ReactNode
 }
@@ -13,6 +13,7 @@ const titleStyles = {
   4: 'text-xl',
   5: 'text-lg',
   6: 'text-base',
+  auto: '',
 }
 
 export const Title = ({ level, children, className = '' }: TitleProps) => {
