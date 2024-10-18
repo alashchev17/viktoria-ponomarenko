@@ -19,5 +19,5 @@ export const Title = ({ level, children, className = '' }: TitleProps) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements
   const titleClassName = titleStyles[level]
 
-  return <Tag className={`${titleClassName} ${className}`}>{children}</Tag>
+  return <Tag className={`${className} ${titleClassName}`}>{children}</Tag>
 }
