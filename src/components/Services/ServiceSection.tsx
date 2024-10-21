@@ -6,7 +6,7 @@ export const ServiceSection = async () => {
   const services = await getServices()
 
   return (
-    <div className="px-2 lg:px-6">
+    <div className="px-2 lg:px-6" id="services">
       <Title level={6} className="uppercase text-center font-bold mb-6">
         Послуги
       </Title>
