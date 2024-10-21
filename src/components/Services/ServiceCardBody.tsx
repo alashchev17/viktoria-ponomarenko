@@ -2,11 +2,12 @@ import type { Service } from '@/types/Service'
 import { Accordion } from '@/components/Accordion'
 
 type ServiceCardBodyProps = {
-  description: Service['description']
+  // description: Service['description']
   questions: Service['questions']
+  isDesktop?: boolean
 }
 
-export const ServiceCardBody = ({ description, questions }: ServiceCardBodyProps) => {
+export const ServiceCardBody = ({ questions, isDesktop }: ServiceCardBodyProps) => {
   const itemsForAccordion = questions.map(question => ({
     _id: question._id,
     title: question.name,
@@ -14,8 +15,12 @@ export const ServiceCardBody = ({ description, questions }: ServiceCardBodyProps
   }))
 
   return (
-    <div className="px-4 pt-6 flex flex-col gap-6">
-      <p className="font-light text-sm">{description}</p>
+    <div
+      className="px-4 pt-6 flex flex-col gap-6"
+      style={{
+        overflowY: isDesktop ? 'auto' : 'hidden',
+      }}
+    >
       <Accordion items={itemsForAccordion} />
     </div>
   )

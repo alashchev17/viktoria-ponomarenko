@@ -20,6 +20,13 @@ export const Slogan = styled.section`
 export const Container = styled.div`
   padding: 70px 0 110px 0;
   overflow: hidden;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    gap: 16px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 120px 0 160px 0;
+  }
 `
 export const Circle = styled.button`
   position: relative;
