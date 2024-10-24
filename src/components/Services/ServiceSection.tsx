@@ -7,7 +7,7 @@ export const ServiceSection = async () => {
 
   return (
     <div className="px-2 lg:px-6" id="services">
-      <Title level={6} className="uppercase text-center font-bold mb-6">
+      <Title level={6} className="uppercase text-center font-bold mb-6 lg:mb-8">
         Послуги
       </Title>
       <div className="flex flex-col gap-8">

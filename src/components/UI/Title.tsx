@@ -12,7 +12,7 @@ const titleStyles = {
   3: 'text-2xl',
   4: 'text-xl',
   5: 'text-lg',
-  6: 'text-base',
+  6: 'text-base lg:text-2xl',
   auto: '',
 }
 

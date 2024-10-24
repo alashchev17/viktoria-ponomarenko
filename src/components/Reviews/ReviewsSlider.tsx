@@ -18,12 +18,15 @@ import { Arrow } from '@/components/Icons/Arrow'
 
 import { adjustColor } from '@/utils/adjustColor'
 import { getTailwindConfig } from '@/lib/getTailwindConfig'
+import { useWindow } from '@/hooks/useWindow'
 
 type ReviewsSliderProps = {
   reviews: Review[]
 }
 
 export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
+  const { isMobile } = useWindow()
+
   const slider = useRef<Slider | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -69,15 +72,15 @@ export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-6 px-2 lg:px-6">
+      <div className="flex justify-between items-center mb-6 px-2 lg:max-w-[320px] lg:mx-auto lg:px-0 lg:mb-8">
         <Button variant="icon" action={() => slider?.current?.slickPrev()}>
-          <Arrow fill="#F6EDDE" width={22} height={22} className="rotate-180" />
+          <Arrow fill="#F6EDDE" width={18} height={18} className="rotate-180" />
         </Button>
         <Title level={6} className="font-sans font-bold text-bezh uppercase">
           Відгуки
         </Title>
         <Button variant="icon" action={() => slider?.current?.slickNext()}>
-          <Arrow fill="#F6EDDE" width={22} height={22} />
+          <Arrow fill="#F6EDDE" width={18} height={18} />
         </Button>
       </div>
       {!isInitialized && (

@@ -16,7 +16,7 @@ const buttonClassNames = {
     'text-center bg-bezh text-dark-blue font-bold text-base w-full py-6 leading-tight uppercase border-[3px] border-dark-blue rounded-[calc(12px-3px)]',
   secondary: 'bg-secondary text-white hover:bg-secondary/80',
   inline: 'uppercase font-sans text-sm text-bezh py-1 px-3 font-semibold border-2 border-bezh rounded-[10px]',
-  icon: 'leading-none py-2 px-2 flex items-center justify-center border-2 border-bezh rounded-full aspect-square',
+  icon: 'leading-none py-3 px-3 lg:px-3.5 lg:py-3.5 flex items-center justify-center border-2 border-bezh rounded-full aspect-square lg:border',
 }
 
 export const Button = ({ children, variant, href, action, id = '', className = '' }: ButtonProps) => {
