@@ -18,15 +18,12 @@ import { Arrow } from '@/components/Icons/Arrow'
 
 import { adjustColor } from '@/utils/adjustColor'
 import { getTailwindConfig } from '@/lib/getTailwindConfig'
-import { useWindow } from '@/hooks/useWindow'
 
 type ReviewsSliderProps = {
   reviews: Review[]
 }
 
 export const ReviewsSlider = ({ reviews }: ReviewsSliderProps) => {
-  const { isMobile } = useWindow()
-
   const slider = useRef<Slider | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
