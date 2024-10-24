@@ -1,5 +1,6 @@
 import type { Service } from '@/types/Service'
 import { Accordion } from '@/components/Accordion'
+import { ScrollableElement } from '../UI/ScrollableElement'
 
 type ServiceCardBodyProps = {
   // description: Service['description']
@@ -15,13 +16,13 @@ export const ServiceCardBody = ({ questions, isDesktop }: ServiceCardBodyProps) 
   }))
 
   return (
-    <div
+    <ScrollableElement
       className="px-4 pt-6 flex flex-col gap-6"
       style={{
         overflowY: isDesktop ? 'auto' : 'hidden',
       }}
     >
       <Accordion items={itemsForAccordion} />
-    </div>
+    </ScrollableElement>
   )
 }
