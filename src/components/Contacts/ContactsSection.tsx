@@ -56,9 +56,14 @@ export const ContactsSection = async () => {
           <Title level={6} className="font-sans text-bezh uppercase font-bold">
             Контакти
           </Title>
-          <div className="px-2 w-full flex justify-between">
+          <div className="px-2 w-full flex justify-between max-w-[640px]">
             {linksArray.map(link => (
-              <Button key={link.name} href={link.link} variant="icon" className="w-[80px] h-[80px]">
+              <Button
+                key={link.name}
+                href={link.link}
+                variant="icon"
+                className="w-[80px] h-[80px] lg:w-[120px] lg:h-[120px]"
+              >
                 {link.icon && link.icon()}
               </Button>
             ))}

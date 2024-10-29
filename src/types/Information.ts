@@ -17,7 +17,7 @@ export type InformationImage = {
   device: 'mobile' | 'desktop'
 }
 
-type InformationLinks = {
+export type InformationLinks = {
   telegram_url: string | null
   youtube_url: string | null
   instagram_url: string | null
@@ -26,7 +26,7 @@ type InformationLinks = {
 
 export type ChannelImage = Omit<InformationImage, 'device'>
 
-type InformationChannel = {
+export type InformationChannel = {
   name: string
   description: string
   image: ChannelImage
