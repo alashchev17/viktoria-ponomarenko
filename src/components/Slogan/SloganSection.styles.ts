@@ -13,10 +13,12 @@ export const Slogan = styled.section`
 export const Container = styled.div`
   padding: 70px 0 110px 0;
   overflow: hidden;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
   @media screen and (min-width: 1024px) {
-    display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 16px;
     max-width: 1140px;
     margin: 0 auto;
     padding: 120px 0 160px 0;
