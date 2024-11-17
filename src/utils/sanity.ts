@@ -2,20 +2,20 @@ import { createClient, groq } from 'next-sanity'
 
 import type { Information } from '@/types/Information'
 import type { Review } from '@/types/Review'
-import type { Service } from '@/types/Service'
+import type { Service, Category } from '@/types/Service'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET as string
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION as string
 
-export async function getInformation(): Promise<Information> {
-  const client = createClient({
-    projectId,
-    dataset,
-    apiVersion,
-    useCdn: true,
-  })
+const client = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true,
+})
 
+export async function getInformation(): Promise<Information> {
   const [information]: Information[] = await client.fetch(
     groq`*[_type == "information"]{
       _id,
@@ -54,14 +54,22 @@ export async function getInformation(): Promise<Information> {
   return information
 }
 
-export async function getServices(): Promise<Service[]> {
-  const client = createClient({
-    projectId,
-    dataset,
-    apiVersion,
-    useCdn: true,
-  })
+export async function getCategories(): Promise<Category[]> {
+  const categories: Category[] = await client.fetch(
+    groq`*[_type == "category"]{
+      _id,
+      _createdAt,
+      title,
+      "slug": slug.current
+    }`,
+    {},
+    { cache: 'no-store' },
+  )
 
+  return categories
+}
+
+export async function getServices(): Promise<Service[]> {
   const services: Service[] = await client.fetch(
     groq`*[_type == "service"]{
       _id,
@@ -80,6 +88,11 @@ export async function getServices(): Promise<Service[]> {
         _id,
         name,
         answer
+      },
+      categories[]->{
+        _id,
+        title,
+        "slug": slug.current
       }
     }`,
     {},
@@ -90,13 +103,6 @@ export async function getServices(): Promise<Service[]> {
 }
 
 export async function getReviews(): Promise<Review[]> {
-  const client = createClient({
-    projectId,
-    dataset,
-    apiVersion,
-    useCdn: true,
-  })
-
   const reviews: Review[] = await client.fetch(
     groq`*[_type == "review"]{
       _id,

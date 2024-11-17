@@ -1,37 +1,47 @@
 'use client'
-import { Title } from '@/components/UI/Title'
-import { Container, Circle, Slogan } from './SloganSection.styles'
+import type { Category } from '@/types/Service'
 import { smoothScrollTo } from '@/utils/smoothScrollTo'
+import { Container, Circle, Slogan } from './SloganSection.styles'
+import { Title } from '@/components/UI/Title'
 
-export const SloganSection = () => {
+type SloganSectionProps = {
+  categories: Category[]
+}
+
+export const SloganSection = ({ categories }: SloganSectionProps) => {
   return (
     <Slogan>
       <Container>
-        <Circle onClick={() => smoothScrollTo('services')}>
-          <Title
-            level={1}
-            className="absolute top-[52%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-serif-italic leading-[90%] text-center font-light w-[252px]"
-          >
-            Навчання
-          </Title>
-        </Circle>
-        <Circle onClick={() => smoothScrollTo('services')}>
-          <Title
-            level={1}
-            className="absolute top-[52%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-serif-italic leading-[90%] text-center font-light w-[252px]"
-          >
-            Індивідуальні послуги
-          </Title>
-        </Circle>
-        <Circle onClick={() => smoothScrollTo('services')}>
-          <Title
-            level={1}
-            className="absolute top-[52%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-serif-italic leading-[90%] text-center font-light w-[252px]"
-          >
-            Груповий ченелінг
-          </Title>
-        </Circle>
+        {categories
+          .sort((a, b) => new Date(a._createdAt).getTime() - new Date(b._createdAt).getTime())
+          .map(category => (
+            <Circle key={category._id} onClick={() => smoothScrollTo(category.slug)}>
+              <Title
+                level={1}
+                className="absolute top-[52%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-serif-italic leading-[90%] text-center font-light w-[252px]"
+              >
+                {category.title}
+              </Title>
+            </Circle>
+          ))}
       </Container>
     </Slogan>
   )
 }
+
+// {/* <Circle onClick={() => smoothScrollTo('services')}>
+//   <Title
+//     level={1}
+//     className="absolute top-[52%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-serif-italic leading-[90%] text-center font-light w-[252px]"
+//   >
+//     Індивідуальні послуги
+//   </Title>
+// </Circle>
+// <Circle onClick={() => smoothScrollTo('services')}>
+//   <Title
+//     level={1}
+//     className="absolute top-[52%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-serif-italic leading-[90%] text-center font-light w-[252px]"
+//   >
+//     Груповий ченелінг
+//   </Title>
+// </Circle> */}
