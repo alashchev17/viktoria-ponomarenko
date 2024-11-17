@@ -46,7 +46,7 @@ export const ServiceCard = ({ service }: ServiceCardProps) => {
       />
       <div className="lg:flex lg:flex-col lg:justify-between lg:max-w-[50%] lg:max-h-[590px]">
         {!isMobile && <ServiceCardHeader title={service.name} />}
-        <p className="py-4 px-4 font-light text-sm">{service.description}</p>
+        <p className="py-4 px-4 lg:py-0 font-light text-sm">{service.description}</p>
         <ServiceCardBody isDesktop={!isMobile} questions={service.questions} />
         <ServiceCardFooter duration={service.duration} price={service.price} link={service.link} />
       </div>

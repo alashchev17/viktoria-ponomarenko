@@ -68,6 +68,14 @@ const serviceSchema = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'categories',
+      title: 'Категорії',
+      description: 'Категорії, в яких буде відображатися послуга',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
+      validation: rule => rule.required().error('Поле "Категорії" обов\'язкове!'),
+    }),
   ],
 })
 
