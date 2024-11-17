@@ -42,26 +42,4 @@ export const Circle = styled.button`
   border-radius: 50%;
   color: ${fullConfig.theme.backgroundColor.bezh};
   border: 2px solid ${fullConfig.theme.backgroundColor.bezh};
-  &:not(:last-child) {
-    margin-bottom: 18px;
-  }
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   background: radial-gradient(50% 50% at 50% 50%, #cb99d9 0%, rgba(203, 153, 217, 0) 100%);
-  //   z-index: -1;
-  // }
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   width: 2px;
-  //   height: 80px;
-  //   background: ${fullConfig.theme.backgroundColor.bezh};
-  //   z-index: -1;
-  //   bottom: -80px;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  // }
 `
