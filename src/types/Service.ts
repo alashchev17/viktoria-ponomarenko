@@ -4,8 +4,8 @@ export type Service = {
   _id: string
   name: string
   description: string
-  duration: string
-  price: number
+  duration?: string
+  price?: number
   link: string
   questions: Question[]
   categories: Category[]

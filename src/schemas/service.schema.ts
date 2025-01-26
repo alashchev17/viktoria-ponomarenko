@@ -37,7 +37,7 @@ const serviceSchema = defineType({
       title: 'Тривалість',
       type: 'string',
       validation: rule => [
-        rule.required().error('Поле "Тривалість" обов\'язкове!'),
+        // rule.required().error('Поле "Тривалість" обов\'язкове!'),
         rule.max(120).error('Дане поле має бути менше 120 символів!'),
       ],
     }),
@@ -45,7 +45,7 @@ const serviceSchema = defineType({
       name: 'price',
       title: 'Вартість послуги (в євро)',
       type: 'number',
-      validation: rule => rule.required().error('Поле "Вартість послуги" обов\'язкове!'),
+      // validation: rule => rule.required().error('Поле "Вартість послуги" обов\'язкове!'),
     }),
     defineField({
       name: 'link',

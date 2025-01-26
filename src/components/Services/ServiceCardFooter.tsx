@@ -11,11 +11,13 @@ export const ServiceCardFooter = ({ price, duration, link }: ServiceCardFooterPr
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col gap-4 items-center py-6">
-        <span className="font-semibold text-4xl text-bezh">&#8364;{price}</span>
-        <div className="flex flex-col items-center font-light text-sm">
-          <span>Тривалість:</span>
-          <span>{duration}</span>
-        </div>
+        {price && <span className="font-semibold text-4xl text-bezh">&#8364;{price}</span>}
+        {duration && (
+          <div className="flex flex-col items-center font-light text-sm">
+            <span>Тривалість:</span>
+            <span>{duration}</span>
+          </div>
+        )}
       </div>
       <Button variant="primary" href={link}>
         Записатися
