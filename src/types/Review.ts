@@ -3,7 +3,7 @@ export type Review = {
   _createdAt: string
   person: {
     name: string
-    position: string
+    position?: string
     avatar: string
     avatar_alt: string
   }

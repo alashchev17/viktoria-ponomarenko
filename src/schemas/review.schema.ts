@@ -29,10 +29,7 @@ const reviewSchema = defineType({
       title: 'Посада',
       description: "Приклад: 'Frontend Developer в Google'",
       type: 'string',
-      validation: rule => [
-        rule.required().error('Поле "Посада" обов\'язкове!'),
-        rule.max(25).error('Дане поле має бути менше 25 символів!'),
-      ],
+      validation: rule => [rule.max(25).error('Дане поле має бути менше 25 символів!')],
       group: 'personGroup',
     }),
     defineField({
@@ -68,13 +65,14 @@ const reviewSchema = defineType({
     }),
     defineField({
       name: 'duration',
-      title: 'Тривалість відгуку',
+      title: 'Тривалість відгуку (в секундах/хвилинах)',
       type: 'string',
       validation: rule => [
         rule.required().error('Поле "Тривалість" обов\'язкове!'),
         rule.max(35).error('Дане поле має бути менше 35 символів!'),
       ],
       group: 'reviewGroup',
+      hidden: ({ parent }) => parent?.reviewType === 'text',
     }),
     defineField({
       name: 'reviewAsset',
@@ -85,6 +83,7 @@ const reviewSchema = defineType({
       },
       validation: rule => rule.required().assetRequired().error('Поле "Медіа-файл відгуку" обов\'язкове!'),
       group: 'reviewGroup',
+      hidden: ({ parent }) => parent?.reviewType === 'text',
     }),
     defineField({
       name: 'reviewSlogan',

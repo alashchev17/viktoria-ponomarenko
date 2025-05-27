@@ -54,7 +54,7 @@ export const ReviewCard = ({ review, onInnerLinkClick }: ReviewCardProps) => {
             />
             <div className="flex flex-col flex-start">
               <span className="text-dark-blue font-semibold text-md">{name}</span>
-              <span className="text-dark-blue font-light text-md">{position}</span>
+              {position && <span className="text-dark-blue font-light text-md">{position}</span>}
             </div>
           </div>
           {slogan && (
