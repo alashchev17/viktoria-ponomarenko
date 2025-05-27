@@ -86,8 +86,14 @@ const informationSchema = defineType({
       group: 'main',
     }),
     defineField({
-      name: 'telegram',
-      title: 'Посилання на Telegram',
+      name: 'telegram_private',
+      title: 'Посилання на Telegram (особисте)',
+      type: 'url',
+      group: 'links',
+    }),
+    defineField({
+      name: 'telegram_channel',
+      title: 'Посилання на Telegram канал',
       type: 'url',
       group: 'channel',
     }),

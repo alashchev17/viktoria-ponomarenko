@@ -18,11 +18,14 @@ export type InformationImage = {
 }
 
 export type InformationLinks = {
-  telegram_url: string | null
+  telegram_channel_url: string | null
+  telegram_private_url: string | null
   youtube_url: string | null
   instagram_url: string | null
   tiktok_url: string | null
 }
+
+export type ContactInformationLinks = Omit<InformationLinks, 'telegram_channel_url'>
 
 export type ChannelImage = Omit<InformationImage, 'device'>
 

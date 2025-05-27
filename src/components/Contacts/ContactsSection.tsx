@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { Title } from '@/components/UI/Title'
-import { Information } from '@/types/Information'
+import { ContactInformationLinks } from '@/types/Information'
 import { Button } from '@/components/UI/Button'
 
 import { getTailwindConfig } from '@/lib/getTailwindConfig'
@@ -22,18 +22,26 @@ interface LinkArray {
 
 export const ContactsSection = async () => {
   const { links, copyright } = await getInformation()
+  const contactLinks: ContactInformationLinks = Object.entries(links).reduce((acc, [key, value]) => {
+    if (key !== 'telegram_channel_url') {
+      acc[key as keyof ContactInformationLinks] = value
+    }
+    return acc
+  }, {} as ContactInformationLinks)
+
   const fullConfig = getTailwindConfig()
   const linksArray = [] as LinkArray[]
 
-  Object.keys(links).forEach(key => {
-    const link = links[key as keyof Information['links']]
+  Object.keys(contactLinks).forEach(key => {
+    const link = contactLinks[key as keyof ContactInformationLinks]
+
     if (link) {
       linksArray.push({
         name: link,
         link: link,
         icon: () => {
           switch (key) {
-            case 'telegram_url':
+            case 'telegram_private_url':
               return <TelegramIcon width={30} height={28} fill={fullConfig.theme.backgroundColor.bezh as string} />
             case 'instagram_url':
               return <InstagramIcon width={30} height={30} fill={fullConfig.theme.backgroundColor.bezh as string} />

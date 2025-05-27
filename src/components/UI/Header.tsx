@@ -20,8 +20,8 @@ export const Header = async () => {
               <InstagramIcon fill={fullConfig.theme.backgroundColor.bezh as string} width="20" height="20" />
             </Button>
           )}
-          {links.telegram_url && (
-            <Button variant="icon" href={links.telegram_url}>
+          {links.telegram_private_url && (
+            <Button variant="icon" href={links.telegram_private_url}>
               <TelegramIcon
                 fill={fullConfig.theme.backgroundColor.bezh as string}
                 width="18"
@@ -33,7 +33,7 @@ export const Header = async () => {
         </div>
       )}
       <HeaderTitle />
-      <Button variant="inline" href={links.telegram_url ? links.telegram_url : undefined}>
+      <Button variant="inline" href={links.telegram_private_url ? links.telegram_private_url : undefined}>
         Записатися
       </Button>
     </header>

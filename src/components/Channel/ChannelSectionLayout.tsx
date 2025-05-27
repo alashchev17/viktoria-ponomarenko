@@ -90,7 +90,7 @@ const ChannelSectionMobileLayout = ({
       </div>
       <a
         className="w-full py-6 font-serif-italic font-semibold tracking-[.13em] text-base text-center text-bezh bg-[#5C82C8] border-2 border-bezh rounded-xl"
-        href={links.telegram_url ? links.telegram_url : 'https://telegram.org'}
+        href={links.telegram_channel_url ? links.telegram_channel_url : 'https://telegram.org'}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -122,7 +122,7 @@ const ChannelSectionDesktopLayout = ({
           </div>
           <a
             className="py-6 px-28 font-serif-italic font-extrabold tracking-[.13em] text-base leading-5 text-center text-dark-blue bg-bezh border-2 border-bezh rounded-xl"
-            href={links.telegram_url ? links.telegram_url : 'https://telegram.org'}
+            href={links.telegram_channel_url ? links.telegram_channel_url : 'https://telegram.org'}
             target="_blank"
             rel="noopener noreferrer"
           >

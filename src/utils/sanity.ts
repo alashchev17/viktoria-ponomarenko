@@ -30,7 +30,8 @@ export async function getInformation(): Promise<Information> {
         device
       },
       "links": {
-        "telegram_url": telegram,
+        "telegram_channel_url": telegram_channel,
+        "telegram_private_url": telegram_private,
         "youtube_url": youtube,
         "instagram_url": instagram,
         "tiktok_url": tiktok
